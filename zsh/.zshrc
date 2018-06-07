@@ -4,9 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/aaqaishtyaq/.oh-my-zsh
 
-# Set term color to give out 256 color
+# Set terminal to output 256 bit color
 export TERM="xterm-256color"
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -64,31 +63,65 @@ ZSH_THEME="powerlevel9k~/powerlevel9k"
 plugins=(
   git osx zsh-autosuggestions powerline]
 )
+#zsh-syntax-highlighting
+#source $ZSH/oh-my-zsh.sh
 
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#Locale setting for python iterm2
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 
-#Pure Prompt
+#Pure Prompt-----------------------------------------------------------------
 autoload -U promptinit; promptinit
 prompt pure
 
-# Set Spaceship ZSH as a prompt
+# Set Spaceship ZSH as a prompt----------------------------------------------
 autoload -U promptinit; promptinit
 prompt spaceship
 
+#PowerLine plugin 
 . /usr/local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-
-
-
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="000"
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="007"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="001"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="000"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="001"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="000"
 POWERLEVEL9K_RVM_BACKGROUND="black"
 POWERLEVEL9K_RVM_FOREGROUND="249"
 POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_COLOR="red"
@@ -124,4 +157,5 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status  time)
 HIST_STAMPS="mm/dd/yyyy"
 DISABLE_UPDATE_PROMPT=true
 
+#Source the zsh
 source $ZSH/oh-my-zsh.sh
