@@ -98,7 +98,6 @@ plugins=(
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-
 #PowerLine plugin 
 . /usr/local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -142,7 +141,6 @@ POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
 POWERLEVEL9K_VCS_COMMIT_ICON="\uf417"
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{red}\u256D\u2500%f"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{red}\u2570\uf460%f "
-#POWERLEVEL9K_CUSTOM_BATTERY_STATUS="prompt_zsh_battery_level"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon custom_internet_signal ssh root_indicator virtualenv dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status  time)
 HIST_STAMPS="mm/dd/yyyy"
