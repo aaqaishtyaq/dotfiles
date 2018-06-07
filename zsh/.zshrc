@@ -157,5 +157,5 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status  time)
 HIST_STAMPS="mm/dd/yyyy"
 DISABLE_UPDATE_PROMPT=true
 
-#Source the zsh
+# Source the zsh
 source $ZSH/oh-my-zsh.sh
