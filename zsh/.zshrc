@@ -4,7 +4,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/aaqaishtyaq/.oh-my-zsh
 
-# Set terminal to output 256 bit color
 export TERM="xterm-256color"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -100,14 +99,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 
-#Pure Prompt-----------------------------------------------------------------
-autoload -U promptinit; promptinit
-prompt pure
-
-# Set Spaceship ZSH as a prompt----------------------------------------------
-autoload -U promptinit; promptinit
-prompt spaceship
-
 #PowerLine plugin 
 . /usr/local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -157,5 +148,5 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status  time)
 HIST_STAMPS="mm/dd/yyyy"
 DISABLE_UPDATE_PROMPT=true
 
-# Source the zsh
+#Source the zsh
 source $ZSH/oh-my-zsh.sh
