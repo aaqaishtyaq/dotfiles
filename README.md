@@ -42,6 +42,8 @@ The dotfile repo
       ```shell
       sudo -s 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh
       ```
+   * For *Windows*
+     * ¯\_(ツ)_/¯
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * [powerline](https://github.com/powerline/powerline)
 * Patched powerline fonts to show glyphs, I use pached version of Fira Code font [FuraCode](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) from nerd-fonts
