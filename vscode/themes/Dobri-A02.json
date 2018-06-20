@@ -56,6 +56,7 @@
     "panelTitle.inactiveForeground": "#97a7c8ff",
     "statusBar.foreground": "#97a7c8ff",
     "statusBar.background": "#0b1015",
+    "statusBar.noFolderBackground": "#0b1015",
     "statusBar.debuggingBackground": "#0b1015",
     "activityBar.background": "#0b1015",
     "activityBar.foreground": "#97a7c8ff",
@@ -70,8 +71,7 @@
     "dropdown.background": "#0b1015",
     "dropdown.border": "#97a7c8ff"
   },
-  "tokenColors": [
-    {
+  "tokenColors": [{
       "settings": {
         "foreground": "#CED5E5",
         "background": "#05080a"
@@ -699,4 +699,3 @@
     }
   ]
 }
-
