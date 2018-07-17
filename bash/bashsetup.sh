@@ -15,3 +15,7 @@ install_util_linux() {
                 fi
         fi
 }
+
+install_util_linux
+
+sudo cp .bashrc ~/.bashrc
