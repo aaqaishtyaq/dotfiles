@@ -18,4 +18,6 @@ install_util_linux() {
 
 install_util_linux
 
-sudo cp .bashrc ~/.bashrc
+mkdir -p ~/migrations
+cp ~/.bashrc ~/migrations
+sudo cp .bashrc ~/
