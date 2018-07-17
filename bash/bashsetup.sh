@@ -21,3 +21,4 @@ install_util_linux
 mkdir -p ~/migrations
 cp ~/.bashrc ~/migrations
 sudo cp .bashrc ~/
+cp ../.gitignore ~/
