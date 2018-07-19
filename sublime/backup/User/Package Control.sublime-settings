@@ -1,0 +1,31 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Anaconda",
+		"AutoFileName",
+		"BracketHighlighter",
+		"Color Highlighter",
+		"Djaneiro",
+		"EditorConfig",
+		"Emmet",
+		"Emmet Css Snippets",
+		"Git",
+		"GitGutter",
+		"HTML-CSS-JS Prettify",
+		"isort",
+		"LESS",
+		"MarkdownEditing",
+		"MarkdownPreview",
+		"MarkdownTOC",
+		"Monokai - Spacegray",
+		"nginx",
+		"Package Control",
+		"SideBarEnhancements",
+		"Theme - Spacegray",
+		"Varnish VCL"
+	]
+}
