@@ -16,7 +16,7 @@ module.exports = {
     fontFamily: '"Operator Mono Lig", "FuraCode Nerd Font", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: 'rgb(98,39,174)',//'rgba(248,28,229,0.8)',
+    cursorColor: 'rgb(98,39,174)', //'rgba(248,28,229,0.8)',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
     cursorShape: 'BLOCK',
@@ -55,22 +55,22 @@ module.exports = {
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     //colors: {
-     // black: '#000000',
-     // red: '#ff0000',
-     // green: '#33ff00',
-     // yellow: '#ffff00',
-     // blue: '#0066ff',
-     // magenta: '#cc00ff',
-     // cyan: '#00ffff',
-      //white: '#d0d0d0',
-      //lightBlack: '#808080',
-      //lightRed: '#ff0000',
-      //lightGreen: '#33ff00',
-      //lightYellow: '#ffff00',
-      //lightBlue: '#0066ff',
-      //lightMagenta: '#cc00ff',
-      //lightCyan: '#00ffff',
-      //lightWhite: '#ffffff'
+    // black: '#000000',
+    // red: '#ff0000',
+    // green: '#33ff00',
+    // yellow: '#ffff00',
+    // blue: '#0066ff',
+    // magenta: '#cc00ff',
+    // cyan: '#00ffff',
+    //white: '#d0d0d0',
+    //lightBlack: '#808080',
+    //lightRed: '#ff0000',
+    //lightGreen: '#33ff00',
+    //lightYellow: '#ffff00',
+    //lightBlue: '#0066ff',
+    //lightMagenta: '#cc00ff',
+    //lightCyan: '#00ffff',
+    //lightWhite: '#ffffff'
     //},
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -100,10 +100,10 @@ module.exports = {
     // if true, selected text will automatically be copied to the clipboard
     copyOnSelect: false,
 
-    //Hyperboarder config 
+    //Hyperboarder config
     hyperBorder: {
       borderColors: ['#ea125e', '#6227ae'],
-       borderWidth: '3px'
+      borderWidth: '3px'
     },
 
     //an-old-hype theme setting
@@ -114,12 +114,12 @@ module.exports = {
     },
 
     //Hyperline  Commented until hyper bring back support for hyperline
-    //hyperline: {                                                                 
-      //plugins: [                                                                 
-        //"ip",                                                                    
-        //"cpu",                                                                   
-        //"spotify"                                                                
-      //]                                                                          
+    //hyperline: {
+    //plugins: [
+    //"ip",
+    //"cpu",
+    //"spotify"
+    //]
     //}
 
 
@@ -148,7 +148,7 @@ module.exports = {
     "hyper-search",
     "hyper-final-say"
   ],
-  
+
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed

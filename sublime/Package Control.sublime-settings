@@ -26,6 +26,12 @@
         "Package Control",
         "SideBarEnhancements",
         "Theme - Spacegray",
-        "Varnish VCL"
+        "Varnish VCL",
+        "HTML-CSS-JS Prettify",
+        "Emmet Css Snippets",
+        "Dockerfile Syntax Highlighting",
+        "AutoFileName",
+        "BracketHighlighter",
+        "Color Highlighter",
     ]
 }

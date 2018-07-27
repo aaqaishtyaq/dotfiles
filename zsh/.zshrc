@@ -10,6 +10,8 @@ export TERM="xterm-256color"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k~/powerlevel9k"
 
+export PATH=/usr/local/share/npm/lib/node_modules/grunt-cli/bin:$PATH
+
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -98,7 +100,7 @@ plugins=(
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-#PowerLine plugin 
+#PowerLine plugin
 . /usr/local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
@@ -145,6 +147,11 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon custom_internet_signal ssh root_indic
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status  time)
 HIST_STAMPS="mm/dd/yyyy"
 DISABLE_UPDATE_PROMPT=true
+
+#Paths for Virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export WORKON_HOME=$HOME/.virtualenvsexport
+PROJECT_HOME=$HOME/Develsource /usr/local/bin/virtualenvwrapper.sh
 
 #Source the zsh
 source $ZSH/oh-my-zsh.sh

@@ -37,8 +37,8 @@ ehthumbs.db
 Thumbs.db
 .Trashesvenv
 
-##Sublime Specific
-
+# Sublime Specific #
+####################
 Package Control.last-run
 Package Control.ca-list
 Package Control.ca-bundle
