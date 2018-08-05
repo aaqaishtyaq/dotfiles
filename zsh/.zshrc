@@ -148,10 +148,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status  time)
 HIST_STAMPS="mm/dd/yyyy"
 DISABLE_UPDATE_PROMPT=true
 
-#Paths for Virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export WORKON_HOME=$HOME/.virtualenvsexport
-PROJECT_HOME=$HOME/Develsource /usr/local/bin/virtualenvwrapper.sh
 
 #Source the zsh
 source $ZSH/oh-my-zsh.sh
