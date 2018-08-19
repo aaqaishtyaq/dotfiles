@@ -2,36 +2,35 @@
     "bootstrapped": true,
     "in_process_packages":
     [
-    ],
-    "installed_dependencies":
-    [
         "0_package_control_loader",
         "bz2"
     ],
     "installed_packages":
     [
         "Anaconda",
+        "AutoFileName",
+        "BracketHighlighter",
+        "Color Highlighter",
         "Djaneiro",
+        "Dockerfile Syntax Highlighting",
         "EditorConfig",
         "Emmet",
+        "Emmet Css Snippets",
         "Git",
         "GitGutter",
+        "HTML-CSS-JS Prettify",
         "isort",
         "LESS",
-        "Markdown Preview",
         "MarkdownEditing",
+        "MarkdownPreview",
         "MarkdownTOC",
         "Monokai - Spacegray",
         "nginx",
         "Package Control",
+        "Pug",
+        "Sass",
         "SideBarEnhancements",
         "Theme - Spacegray",
-        "Varnish VCL",
-        "HTML-CSS-JS Prettify",
-        "Emmet Css Snippets",
-        "Dockerfile Syntax Highlighting",
-        "AutoFileName",
-        "BracketHighlighter",
-        "Color Highlighter",
+        "Varnish VCL"
     ]
 }

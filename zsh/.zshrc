@@ -62,7 +62,7 @@ export PATH=/usr/local/share/npm/lib/node_modules/grunt-cli/bin:$PATH
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git osx zsh-autosuggestions powerline]
+  git osx zsh-autosuggestions powerline
 )
 #zsh-syntax-highlighting
 #source $ZSH/oh-my-zsh.sh
@@ -87,18 +87,21 @@ plugins=(
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+###############################################################################
+# Alias                                                                       #
+###############################################################################
+
+alias le="exa -l"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 #Locale setting for python iterm2
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+###############################################################################
+# Powerline                                                                   #
+###############################################################################
 
 #PowerLine plugin
 . /usr/local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
@@ -148,6 +151,11 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status  time)
 HIST_STAMPS="mm/dd/yyyy"
 DISABLE_UPDATE_PROMPT=true
 
+
+###############################################################################
+# Git                                                                         #
+###############################################################################
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 #Source the zsh
 source $ZSH/oh-my-zsh.sh
