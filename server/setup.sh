@@ -4,7 +4,7 @@ echo "Beginning with Debian setup. Have a walk while the machine is setup"
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
-sudo apt-get -y install git neofetch fortune cowsay wget curl htop tmux
+sudo apt-get -y install git neofetch fortune cowsay wget curl htop tmux dnsutils
 sudo apt-get -y install python3-pip
 sudo apt-get -y install zsh
 sudo pip3 install powerline-status
