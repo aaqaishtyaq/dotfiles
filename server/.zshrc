@@ -22,6 +22,9 @@ ZSH_THEME="agnoster"
 ustom message when SSH and custom color
 clear
 fortune | cowsay -f tux
+myip="$(dig +short myip.opendns.com @resolver1.opendns.com)"
+echo "My Public IP address: ${myip}"
+
 echo "$(uptime)"
 echo ""
 
