@@ -8,7 +8,7 @@ export TERM="xterm-256color"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k~/powerlevel9k"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 export PATH=/usr/local/share/npm/lib/node_modules/grunt-cli/bin:$PATH
 
@@ -64,6 +64,9 @@ export PATH=/usr/local/share/npm/lib/node_modules/grunt-cli/bin:$PATH
 plugins=(
   git osx zsh-autosuggestions powerline
 )
+
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+
 #zsh-syntax-highlighting
 #source $ZSH/oh-my-zsh.sh
 
@@ -146,7 +149,7 @@ POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
 POWERLEVEL9K_VCS_COMMIT_ICON="\uf417"
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{red}\u256D\u2500%f"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{red}\u2570\uf460%f "
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon custom_internet_signal ssh root_indicator virtualenv dir dir_writable vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon custom_internet_signal ssh root_indicator virtualenv rvm dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status  time)
 HIST_STAMPS="mm/dd/yyyy"
 DISABLE_UPDATE_PROMPT=true
@@ -159,3 +162,5 @@ git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 #Source the zsh
 source $ZSH/oh-my-zsh.sh
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
