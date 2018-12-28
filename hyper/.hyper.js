@@ -9,7 +9,7 @@ module.exports = {
         updateChannel: 'stable',
 
         // default font size in pixels for all tabs
-        fontSize: 16,
+        fontSize: 15,
 
         // font family with optional fallbacks
         //fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -28,7 +28,9 @@ module.exports = {
         //foregroundColor: '#fff',
 
         // terminal background color
-        //backgroundColor: '#000',
+        //backgroundColor: 'rgb(9, 11, 16)',
+
+        backgroundColor: 'rgb(15, 17, 26)',
 
         // border color (window, tabs)
         borderColor: '#ff000',
@@ -73,6 +75,25 @@ module.exports = {
         //lightWhite: '#ffffff'
         //},
 
+        colors: {
+            black: '#0F111D',
+            red: '#eb3d54',
+            green: '#78bd65',
+            yellow: '#e5cd52',
+            blue: '#4fb4d8',
+            magenta: '#C792EA',
+            cyan: '#82AAFF',
+            white: '#d0d0d0',
+            lightBlack: '#808080',
+            lightRed: '#eb3d54',
+            lightGreen: '#78bd65',
+            lightYellow: '#e5cd52',
+            lightBlue: '#4fb4d8',
+            lightMagenta: '#C792EA',
+            lightCyan: '#82AAFF',
+            lightWhite: '#ffffff'
+        },
+
         // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
         // if left empty, your system's login shell will be used by default
         //
@@ -105,12 +126,11 @@ module.exports = {
             borderColors: ['#ea125e', '#6227ae'],
             borderWidth: '1px'
         },
-
-        //an-old-hype theme setting
-        themeSettings: {
-            opacity: 1.2,
-            style: 'vader'
-        },
+        // //an-old-hype theme setting
+        // themeSettings: {
+        //     opacity: 0.94,
+        //     style: 'vader'
+        // },
 
         //Hyperline  Commented until hyper bring back support for hyperline
         //hyperline: {
@@ -133,7 +153,8 @@ module.exports = {
         //"hyperborder",
         //"hyperline",
         //"hyper-midnight",
-        "an-old-hype",
+        //"an-old-hype",
+        //"hyperpanic",
         "hypercwd",
         "hyper-search",
         "hyper-final-say",
