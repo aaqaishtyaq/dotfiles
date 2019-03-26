@@ -10,8 +10,6 @@ export TERM="xterm-256color"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-export PATH=/usr/local/share/npm/lib/node_modules/grunt-cli/bin:$PATH
-
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -62,7 +60,7 @@ export PATH=/usr/local/share/npm/lib/node_modules/grunt-cli/bin:$PATH
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git osx zsh-autosuggestions powerline zsh-syntax-highlighting
+  git osx zsh-autosuggestions zsh-syntax-highlighting
 )
 
 ZSH_AUTOSUGGEST_USE_ASYNC=true
@@ -98,6 +96,9 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 alias le="exa -l"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias sl="ls -al"
+alias code-hr="code ~/Developer/work/hackerrank/"
+alias brewclean="brew update && brew upgrade && brew cleanup; brew doctor"
+alias glog="git log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 #Locale setting for python iterm2
 export LC_ALL=en_US.UTF-8
@@ -108,7 +109,7 @@ export LANG=en_US.UTF-8
 ###############################################################################
 
 #PowerLine plugin
-. /usr/local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
@@ -165,5 +166,15 @@ git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 #Source the zsh
 source $ZSH/oh-my-zsh.sh
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+# export PATH="/usr/local/opt/icu4c/bin:$PATH"
+# export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/aaqaishtyaq/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aaqaishtyaq/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/aaqaishtyaq/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aaqaishtyaq/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
