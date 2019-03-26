@@ -164,8 +164,6 @@ DISABLE_UPDATE_PROMPT=true
 ###############################################################################
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
-#Source the zsh
-source $ZSH/oh-my-zsh.sh
 # export PATH="/usr/local/opt/icu4c/bin:$PATH"
 # export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
@@ -178,3 +176,6 @@ if [ -f '/Users/aaqaishtyaq/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/aaqaishtyaq/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aaqaishtyaq/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+#Source the zsh
+source $ZSH/oh-my-zsh.sh
