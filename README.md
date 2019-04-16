@@ -1,9 +1,9 @@
 # dotfiles
 ![open-source](https://img.shields.io/badge/open--source-%E2%9D%A4%EF%B8%8F-%09%23ff102e.svg?longCache=true&style=flat-square)
 
-The dotfile repo
+The Dotfiles repo
 
-![My setup](src/hyper_setup.png)
+![My setup](src/iterm2_setup.png)
 
 ## Getting started
 
