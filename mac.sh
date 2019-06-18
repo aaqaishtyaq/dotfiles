@@ -25,8 +25,8 @@ brew tap caskroom/versions
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils
-echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
+# brew install coreutils
+# echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
 
 # Setup shell
 brew install bash
@@ -52,14 +52,20 @@ function installcask() {
 brew install git git-extras hub
 brew install diff-so-fancy
 brew install tmux
-brew install cookiecutter
-brew install node
+# brew install cookiecutter
+# brew install node
 brew install python3
 
 # Native apps
 brew tap phinze/homebrew-cask
 brew install brew-cask
 
+
+install_nvm() {
+    brew install nvm
+    mkdir -p ~/.nvm
+}
+install_nvm
 ###############################################################################
 # Install utilities                                                           #
 ###############################################################################
@@ -72,17 +78,10 @@ installcask transmission
 installcask numi #http://numi.io
 # installcask skitch  # https://evernote.com/skitch/
 installcask vlc # 'cause you have to have this
-installcask dash  # awesome offline docs
-installcask nvalt  # Fork of Notational Velocity
-installcask boostnote # Awesome Electron based Note taking application
+# installcask dash  # awesome offline docs
+# installcask nvalt  # Fork of Notational Velocity
+# installcask boostnote # Awesome Electron based Note taking application
 
-# Postgres 9 Database
-brew install postgres
-installcask pgadmin3
-# ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-psql postgres -c 'CREATE EXTENSION "adminpack";'
-sudo gem install pg
 
 # Fonts
 brew tap caskroom/fonts
@@ -93,22 +92,35 @@ installcask font-firacode-nerd-font
 #                           Dev tools                                          #
 ################################################################################
 
-installcask install virtualbox
 installcask install docker
 installcask install postman
-installcask sublime-text
 installcask visual-studio-code
 
+# Postgres 9 Database
+# brew install postgres
+# installcask pgadmin3
+# # ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+# # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+# psql postgres -c 'CREATE EXTENSION "adminpack";'
+# sudo gem install pg
+
+# installcask install virtualbox
+# installcask sublime-text
+
 # Some frontend stuff
-brew install node
-npm i -g postcss-cli
-npm i -g autoprefixer
+# npm i -g postcss-cli
+# npm i -g autoprefixer
 
 # Install custom stuff
-installcask install telegram  # Telegram
-installcask teamviewer # TeamViewer
-installcask install slack # Slack
-brew install tor #TOR
+# installcask install telegram  # Telegram
+# installcask teamviewer # TeamViewer
+# installcask install slack # Slack
+# brew install tor #TOR
+
+# Install TMUX@2.8
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/834d93c87ea0f6c0c10295599b6b1fc7b4aded96/Formula/tmux.rb
+brew pin tmux
+
 
 ################################################################################
 #                           Customize Shell                                    #
@@ -152,13 +164,24 @@ install_oh_my_zsh
 ###############################################################################
 
 set -P
-# Zsh Syntax highlighting
+# Zsh Syntax highlighting and Autosuggestion
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Install Powerlevel9k theme
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
+
+# SSH Keygen, Add to ssh-agent
+
+
+# cp config ~/.ssh/
+# ssh-add -K ~/.ssh/id_rsa
+
 # Remove outdated versions from the cellar
 brew cleanup && brew cask cleanup
+
+source ~/.zshrc
+nvm install 8.16.0
 
 exit 0
