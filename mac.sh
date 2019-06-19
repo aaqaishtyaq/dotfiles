@@ -51,7 +51,6 @@ function installcask() {
 # Install everything else
 brew install git git-extras hub
 brew install diff-so-fancy
-brew install tmux
 # brew install cookiecutter
 # brew install node
 brew install python3
