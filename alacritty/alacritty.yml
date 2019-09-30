@@ -94,11 +94,11 @@ font:
   # The normal (roman) font face to use.
   normal: # Style can be specified to pick a specific face.
     family: "SauceCodePro Nerd Font"
-    style: Light
+    style: Regular
 
   bold:
     family: "Operator Mono"
-    style: Italic
+    style: Book
   # italic:
   #   family: Menlo
   #   # Style can be specified to pick a specific face.
@@ -139,7 +139,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 13.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -218,7 +218,7 @@ colors:
 
   # # Bright colors
   # bright:
-  #   black:   '#5b5d61'
+  #   black:   '#464B5D'
   #   red:     '#ff1f4f'
   #   green:   '#78bd65'
   #   yellow:  '#FFCB6B'
@@ -242,7 +242,7 @@ colors:
 
   # Bright colors
   bright:
-    black:   '#2d3139'
+    black:   '#5b5d61'
     red:     '#ff1f4f'
     green:   '#2DBB54'
     yellow:  '#e5c07b'
@@ -320,6 +320,11 @@ mouse:
   # or triple click.
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
+  url:
+    launcher:
+      program: google-chrome
+      args:
+        - --new-window
 
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: false
@@ -545,12 +550,10 @@ key_bindings:
   - { key: PageDown,                      chars: "\x1b[6~"                     }
   - { key: Left,     mods: Shift,         chars: "\x1b[1;2D"                   }
   - { key: Left,     mods: Control,       chars: "\x1b[1;5D"                   }
-  # - { key: Left,     mods: Alt,           chars: "\x1b[1;3D"                   }
   - { key: Left,                          chars: "\x1b[D",   mode: ~AppCursor  }
   - { key: Left,                          chars: "\x1bOD",   mode: AppCursor   }
   - { key: Right,    mods: Shift,         chars: "\x1b[1;2C"                   }
   - { key: Right,    mods: Control,       chars: "\x1b[1;5C"                   }
-  # - { key: Right,    mods: Alt,           chars: "\x1b[1;3C"                   }
   - { key: Right,                         chars: "\x1b[C",   mode: ~AppCursor  }
   - { key: Right,                         chars: "\x1bOC",   mode: AppCursor   }
   - { key: Up,       mods: Shift,         chars: "\x1b[1;2A"                   }
@@ -584,4 +587,3 @@ key_bindings:
   - { key: Right,    mods: Alt,           chars: "\x1bf"                       }
   - { key: Left,     mods: Command,       chars: "\x1bOH",   mode: AppCursor   } # Home
   - { key: Right,    mods: Command,       chars: "\x1bOF",   mode: AppCursor   } # End
-
