@@ -53,6 +53,7 @@ color_orange="colour166"
 color_red="colour160"
 color_gray="colour252"
 color_red2="colour196"
+color_st_bg="colour232"
 
 color_dark="$color_black"
 color_light="$color_white"
@@ -73,14 +74,14 @@ set -g status-position bottom
 set -g status-justify left
 set -g status-left-length 20
 set -g status-right-length 100
-set -g status-style "fg=$color_status_text,bg=$color_red2"
+set -g status-style "fg=$color_status_text,bg=$color_st_bg"
 set -g window-status-format " #I:#W "
 set -g window-status-separator ""
-set -g window-status-current-format "#[fg=$color_dark,bg=$color_main,bold] #I:#W #[fg=$color_main,bg=$color_red2]#[default]"
+set -g window-status-current-format "#[fg=$color_dark,bg=$color_main,bold] #I:#W #[fg=$color_main,bg=$color_st_bg]#[default]"
 set -g window-status-activity-style "fg=$color_main"
 
 set -g mode-style "fg=$color_dark,bg=$color_light"
-set -g message-style "fg=$color_main,bg=$color_red2"
+set -g message-style "fg=$color_main,bg=$color_st_bg"
 set -g pane-active-border-style "fg=$color_main"
 
 set -g status-left "$wg_session"
@@ -104,4 +105,3 @@ bind -T off F12 \
   set -u window-status-current-style \;\
   set -u window-status-current-format \;\
   refresh-client -S
-
