@@ -2,7 +2,9 @@ export ZSH=/Users/$USER/.oh-my-zsh
 
 export TERM="xterm-256color"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
 
 plugins=(
   git osx zsh-autosuggestions zsh-z
@@ -92,18 +94,24 @@ DISABLE_UPDATE_PROMPT=true
 ###############################################################################
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
-export NVM_DIR="/Users/aaqa/.nvm"
+export NVM_DIR="/Users/$USER/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$GEM_HOME/bin:$PATH"
+# export PATH="$GEM_HOME/bin:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/aaqa/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aaqa/google-cloud-sdk/path.zsh.inc'; fi
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/$USER/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/$USER/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/aaqa/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aaqa/google-cloud-sdk/completion.zsh.inc'; fi
+# # The next line enables shell command completion for gcloud.
+# if [ -f '/Users/$USER/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/$USER/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 #Source the zsh
 source $ZSH/oh-my-zsh.sh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

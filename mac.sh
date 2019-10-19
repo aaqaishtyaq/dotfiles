@@ -20,7 +20,7 @@ brew update
 brew upgrade
 
 # Install homebrew cask
-brew tap caskroom/cask
+brew tap homebrew/cask-cask
 brew tap caskroom/versions
 
 # Install GNU core utilities (those that come with macOS are outdated).
@@ -29,13 +29,13 @@ brew tap caskroom/versions
 # echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
 
 # Setup shell
-brew install bash
+
 brew install zsh zsh-completions
 brew install shellcheck
 
 # Install wget with IRI support
-brew install wget --with-iri
-brew install curl --with-ssl --with-ssh
+# brew install wget --with-iri
+# brew install curl --with-ssl --with-ssh
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
 
@@ -51,9 +51,6 @@ function installcask() {
 # Install everything else
 brew install git git-extras hub
 brew install diff-so-fancy
-# brew install cookiecutter
-# brew install node
-brew install python3
 
 # Native apps
 brew tap phinze/homebrew-cask
@@ -69,9 +66,9 @@ install_nvm
 # Install utilities                                                           #
 ###############################################################################
 
-installcask spectacle # The most important software
+# installcask spectacle # window management
 brew cask install caskroom/versions/firefox-developer-edition
-installcask google-chrome-dev
+installcask google-chrome
 installcask android-file-transfer
 installcask transmission
 installcask numi #http://numi.io
@@ -83,9 +80,10 @@ installcask vlc # 'cause you have to have this
 
 
 # Fonts
-brew tap caskroom/fonts
-installcask font-source-code-pro
-installcask font-firacode-nerd-font
+brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-font
+brew cask install font-firacode-nerd-font-mono
+brew cask install font-sourcecodepro-nerd-font
 
 ################################################################################
 #                           Dev tools                                          #
@@ -95,30 +93,12 @@ installcask install docker
 installcask install postman
 installcask visual-studio-code
 
-# Postgres 9 Database
-# brew install postgres
-# installcask pgadmin3
-# # ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-# # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-# psql postgres -c 'CREATE EXTENSION "adminpack";'
-# sudo gem install pg
-
 # installcask install virtualbox
-# installcask sublime-text
-
-# Some frontend stuff
-# npm i -g postcss-cli
-# npm i -g autoprefixer
-
-# Install custom stuff
-# installcask install telegram  # Telegram
-# installcask teamviewer # TeamViewer
-# installcask install slack # Slack
-# brew install tor #TOR
 
 # Install TMUX@2.8
-brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/834d93c87ea0f6c0c10295599b6b1fc7b4aded96/Formula/tmux.rb
-brew pin tmux
+# brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/834d93c87ea0f6c0c10295599b6b1fc7b4aded96/Formula/tmux.rb
+# brew pin tmux
+brew install tmux
 
 
 ################################################################################
@@ -156,7 +136,20 @@ install_oh_my_zsh () {
     fi
 }
 
-install_oh_my_zsh
+link_config () {
+    cp -f "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak" 2>/dev/null || true
+    cp -a ./tmux/. "$HOME"/.tmux/
+    ln -sf .tmux/tmux.conf "$HOME"/.tmux.conf;
+
+    cp -a alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+    cp -a zsh/.zshrc ~/.config/zsh/zshrc
+    cp -a vim/.vimrc ~/.config/vim/vimrc
+    cp -a tmux/next/.tmux.conf ~/.config/tmux/tmux.conf
+    ls -sf ~/.config/zsh/zshrc "$HOME"/.zshrc;
+    ls -sf ~/.config/vim/vimrc "$HOME"/.vimrc;
+    ls -sf ~/.config/tmux/tmux.conf "$HOME"/.tmux.conf;
+}
+
 
 ###############################################################################
 # Zsh                                                                         #
@@ -164,23 +157,24 @@ install_oh_my_zsh
 
 set -P
 # Zsh Syntax highlighting and Autosuggestion
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# Install Powerlevel9k theme
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
 
-# SSH Keygen, Add to ssh-agent
-
-
-# cp config ~/.ssh/
+# SSH Keygen, Add to ssh-agent and icloud Keychain
+cp config ~/.ssh/
 # ssh-add -K ~/.ssh/id_rsa
+
 
 # Remove outdated versions from the cellar
 brew cleanup && brew cask cleanup
 
 source ~/.zshrc
-nvm install 8.16.0
+link_config
+install_oh_my_zsh
+brew install golang
 
 exit 0
