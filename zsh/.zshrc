@@ -4,7 +4,6 @@ export TERM="xterm-256color"
 
 ZSH_THEME=powerlevel10k/powerlevel10k
 
-
 plugins=(
   git osx zsh-autosuggestions zsh-z
 )
@@ -30,6 +29,8 @@ alias ga="git add"
 alias gc="git commit -m"
 alias hacker="cd ~/Developer/hackerrank/"
 alias hk="cd ~/Developer/hackerrank/"
+alias vim='nvim'
+alias dev="cd ~/Developer"
 #Locale setting for python iterm2
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -114,3 +115,5 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 #Source the zsh
 source $ZSH/oh-my-zsh.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
