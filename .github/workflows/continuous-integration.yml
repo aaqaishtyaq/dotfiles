@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build_linux:
+    name: Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install shellcheck
+      run: |
+        TERM=xterm-256color
+        echo ::set-env name=TERM::$TERM
+        sudo apt-get install shellcheck
+    - name: Lint
+      run: ./tests.sh
+
+  build_mac:
+    name: macOS
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install shellcheck
+      run: |
+        TERM=xterm-256color
+        echo ::set-env name=TERM::$TERM
+        brew install shellcheck
+    - name: Lint
+      run: ./tests.sh
