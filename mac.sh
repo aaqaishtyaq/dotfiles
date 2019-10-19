@@ -23,15 +23,7 @@ brew upgrade
 brew tap homebrew/cask-cask
 brew tap caskroom/versions
 
-# Install GNU core utilities (those that come with macOS are outdated).
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-# brew install coreutils
-# echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
 
-# Setup shell
-
-brew install zsh zsh-completions
-brew install shellcheck
 
 # Install wget with IRI support
 # brew install wget --with-iri
@@ -51,17 +43,12 @@ function installcask() {
 # Install everything else
 brew install git git-extras hub
 brew install diff-so-fancy
+brew install shellcheck
 
 # Native apps
 brew tap phinze/homebrew-cask
 brew install brew-cask
 
-
-install_nvm() {
-    brew install nvm
-    mkdir -p ~/.nvm
-}
-install_nvm
 ###############################################################################
 # Install utilities                                                           #
 ###############################################################################
@@ -130,7 +117,7 @@ install_oh_my_zsh () {
         # If the platform is OS X, tell the user to install zsh :)
         elif [[ $platform == 'Darwin' ]]; then
             echo "We'll install zsh, then re-run this script!"
-            brew install zsh
+            brew install zsh zsh-completions
             exit
         fi
     fi
@@ -141,6 +128,7 @@ link_config () {
     cp -a ./tmux/. "$HOME"/.tmux/
     ln -sf .tmux/tmux.conf "$HOME"/.tmux.conf;
 
+    mkdir -p ~/.config/nvim ~/.config/zsh ~/.config/vim ~/.config/tmux
     cp -a alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
     cp -a zsh/.zshrc ~/.config/zsh/zshrc
     cp -a vim/.vimrc ~/.config/vim/vimrc
@@ -174,7 +162,9 @@ brew cleanup && brew cask cleanup
 
 source ~/.zshrc
 link_config
-install_oh_my_zsh
 brew install golang
+brew install fzf
 
+$(brew --prefix)/opt/fzf/install
+install_oh_my_zsh
 exit 0

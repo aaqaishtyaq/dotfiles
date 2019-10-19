@@ -93,12 +93,17 @@ tabspaces: 8
 font:
   # The normal (roman) font face to use.
   normal: # Style can be specified to pick a specific face.
-    family: "SauceCodePro Nerd Font"
-    style: Regular
+    family: BlexMono Nerd Font
+    style: Light
 
   bold:
-    family: "Operator Mono"
-    style: Book
+    family: BlexMono Nerd Font
+    style: Bold
+
+  italic:
+    family: BlexMono Nerd Font
+    style: Italic
+
   # italic:
   #   family: Menlo
   #   # Style can be specified to pick a specific face.
