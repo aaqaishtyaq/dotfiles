@@ -63,9 +63,9 @@ map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeMinimalUI=1
 
 " python execs for nvim
-let g:completor_python_binary = '/usr/local/bin/python3'
-let g:python2_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:completor_python_binary = '/usr/bin/python3'
+let g:python2_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " use default mappings for vim-githubinator
 let g:githubinator_no_default_mapping=0

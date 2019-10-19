@@ -1,0 +1,13 @@
+diff --git a/colors/yami.vim b/colors/yami.vim
+index e2218bb..55236d0 100644
+--- a/colors/yami.vim
++++ b/colors/yami.vim
+@@ -22,7 +22,7 @@ let g:colors_name = "yami"
+ " Color palette
+ let s:lime   = "#d6ebc7"
+ let s:light  = "#d4d4d5"
+-let s:dark   = "#18151c"
++let s:dark   = "#000000"
+ let s:gray0  = "#666666"
+ let s:gray1  = "#323232"
+ let s:gray2  = "#23242a"

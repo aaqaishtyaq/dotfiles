@@ -1,4 +1,6 @@
-# dotfiles
+# ⛏ dotfiles
+
+[![Build Status](https://github.com/aaqaishtyaq/dotfiles/workflows/CI/badge.svg)](https://github.com/aaqaishtyaq/dotfiles/actions?workflow=CI)
 
 
 > "less is more"
