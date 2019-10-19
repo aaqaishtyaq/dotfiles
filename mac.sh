@@ -147,13 +147,13 @@ set -P
 # Zsh Syntax highlighting and Autosuggestion
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
 
 # SSH Keygen, Add to ssh-agent and icloud Keychain
-cp config ~/.ssh/
+cp ssh/config ~/.ssh/
 # ssh-add -K ~/.ssh/id_rsa
 
 
