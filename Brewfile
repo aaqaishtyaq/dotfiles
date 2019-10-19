@@ -7,7 +7,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 
-# cli tools
+# CLI tools
 brew 'coreutils'
 brew 'diff-so-fancy'
 brew 'fzf'
@@ -23,7 +23,7 @@ brew 'tree'
 brew 'zsh'
 
 
-# casks
+# Casks
 cask 'alfred'
 cask 'android-file-transfer'
 cask 'docker'
