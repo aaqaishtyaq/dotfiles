@@ -40,7 +40,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: transparent
 
   # Startup Mode (changes require restart)
   #
@@ -233,12 +233,14 @@ colors:
   #   white:   '#ffffff'
   ##FF0033
   ##ff3845
+   #ba222f
 
+  ### Dang Black Colour
   # Normal colors
   normal:
     black:   '#000000'
-    red:     '#ff3845'
-    green:   '#78F868'
+    red:     '#c92432'
+    green:   '#2DBB54'
     yellow:  '#FFB835'
     blue:    '#2ec7ff'
     magenta: '#9340ff'
@@ -248,14 +250,13 @@ colors:
   # Bright colors
   bright:
     black:   '#5b5d61'
-    red:     '#ff1f4f'
-    green:   '#2DBB54'
-    yellow:  '#e5c07b'
+    red:     '#f42c3e'
+    green:   '#7ec16e'
+    yellow:  '#fe8019'
     blue:    '#56b6c2'
-    magenta: '#7834d1'
+    magenta: '#b77ee0'
     cyan:    '#82AAFF'
     white:   '#ffffff'
-
 
   # Indexed Colors
   #
@@ -277,7 +278,7 @@ colors:
 #
 # Values for `animation`:
 #   - Ease
-#   - EaseOut
+#   - c
 #   - EaseOutSine
 #   - EaseOutQuad
 #   - EaseOutCubic
