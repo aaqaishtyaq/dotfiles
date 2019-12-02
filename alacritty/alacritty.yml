@@ -68,15 +68,6 @@ scrolling:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-  # Faux Scrolling
-  #
-  # The `faux_multiplier` setting controls the number of lines the terminal
-  # should scroll when the alternate screen buffer is active. This is used
-  # to allow mouse scrolling for applications like `man`.
-  #
-  # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
-
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
 
@@ -94,7 +85,7 @@ font:
   # The normal (roman) font face to use.
   normal: # Style can be specified to pick a specific face.
     family: BlexMono Nerd Font
-    style: Light
+    style: Book
 
   bold:
     family: BlexMono Nerd Font
@@ -144,7 +135,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 12.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -233,7 +224,8 @@ colors:
   #   white:   '#ffffff'
   ##FF0033
   ##ff3845
-   #ba222f
+  ##ba222f
+  ##b77ee0
 
   ### Dang Black Colour
   # Normal colors
@@ -254,7 +246,7 @@ colors:
     green:   '#7ec16e'
     yellow:  '#fe8019'
     blue:    '#56b6c2'
-    magenta: '#b77ee0'
+    magenta: '#ff6ac1'
     cyan:    '#82AAFF'
     white:   '#ffffff'
 
