@@ -2,10 +2,10 @@ export ZSH=/Users/$USER/.oh-my-zsh
 
 export TERM="xterm-256color"
 
-ZSH_THEME=powerlevel10k/powerlevel10k
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
-  git osx zsh-autosuggestions zsh-z
+  git osx zsh-autosuggestions zsh-z kubectl minikube
 )
 
 ZSH_AUTOSUGGEST_USE_ASYNC=true
@@ -21,16 +21,20 @@ alias le="exa -l"
 alias tree-"exa -T"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias sl="ls -al"
-alias code-hr="code ~/Developer/work/hackerrank/"
 alias brewclean="brew update && brew upgrade && brew cleanup; brew doctor"
 alias glog="git log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
-alias hacker="cd ~/Developer/hackerrank/"
-alias hk="cd ~/Developer/hackerrank/"
-alias vim='nvim'
-alias dev="cd ~/Developer"
+alias dev="cd ${HOME}/Developer/"
+alias hr="cd ~/Developer/hackerrank/"
+alias hr-start-run="~/Developer/scripts/start-hackerrank-workspace.sh --setup"
+alias hr-start="~/Developer/scripts/start-hackerrank-workspace.sh"
+alias rtest="RAILS_ENV=test bundle exec rspec"
+alias sprec="RAILS_ENV=test bin/rspec"
+alias ssh_private="ssh ubuntu@10.16.32.16"
+alias ssh_build="ssh ubuntu@build.vpc.hackerrank.com"
+
 #Locale setting for python iterm2
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -40,7 +44,7 @@ export LANG=en_US.UTF-8
 ###############################################################################
 
 #PowerLine plugin
-# source ~/.oh-my-zsh/custom/themes/powerlevel9k
+# source ~/.oh-my-zsh/custom/themes/powerlevel10k
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
@@ -62,6 +66,8 @@ POWERLEVEL9K_TIME_FORMAT="\UF43A %D{%I:%M  \UF133  %d.%m.%y}"
 POWERLEVEL9K_RVM_BACKGROUND="black"
 POWERLEVEL9K_RVM_FOREGROUND="249"
 POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_COLOR="blue"
+POWERLEVEL9K_NODE_VERSION_BACKGROUND="black"
+POWERLEVEL9K_NODE_VERSION_FOREGROUND="green"
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='black'
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
@@ -83,11 +89,15 @@ POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
 POWERLEVEL9K_VCS_COMMIT_ICON="\uf417"
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{red}\u256D\u2500%f"
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{red}\u2570\uf460%f "
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh root_indicator virtualenv dir dir_writable vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh root_indicator virtualenv dir dir_writable vcs kubecontext)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rvm)
-#(command_execution_time  status  time)
+#(command_execution_time  status  time node_version)
 HIST_STAMPS="mm/dd/yyyy"
 DISABLE_UPDATE_PROMPT=true
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND='black'
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND='white'
+POWERLEVEL9K_KUBECONTEXT_SHORTEN=(gke eks)
+typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='k|kubectl|helm|kubens|kubectx|oc|istioctl|kogito'
 
 ###############################################################################
 # Git                                                                         #
@@ -97,23 +107,38 @@ git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 export NVM_DIR="/Users/$USER/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# add global node_modules in NODE_PATH
+export NODE_PATH="$(npm root -g)"
+
+# Export path for openssl
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
 # # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
-# export PATH="$GEM_HOME/bin:$PATH"
+export PATH="$GEM_HOME/bin:$PATH"
+export PATH="$HOME/chectl/bin:$PATH"
 
-# # The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/$USER/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/$USER/google-cloud-sdk/path.zsh.inc'; fi
+# export CHE_DOMAIN=$(kubectl get services --namespace ingress-nginx -o jsonpath='{.items[*].spec.clusterIP}')
 
-# # The next line enables shell command completion for gcloud.
-# if [ -f '/Users/$USER/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/$USER/google-cloud-sdk/completion.zsh.inc'; fi
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/aaqa/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aaqa/google-cloud-sdk/path.zsh.inc'; fi
 
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/aaqa/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aaqa/google-cloud-sdk/completion.zsh.inc'; fi
 
-export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+function kube() {
+  if [ $commands[kubectl] ]; then
+      source <(kubectl completion zsh)
+  fi
+}
 
-#Source the zsh
+export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib"
+export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
+export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# Source the zsh
 source $ZSH/oh-my-zsh.sh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# fsf (figure out  why it's not working before sourcing zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
