@@ -91,14 +91,17 @@ DISABLE_UPDATE_PROMPT=true
 POWERLEVEL9K_KUBECONTEXT_BACKGROUND='black'
 POWERLEVEL9K_KUBECONTEXT_FOREGROUND='white'
 POWERLEVEL9K_KUBECONTEXT_SHORTEN=(gke eks)
+typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_DEFAULT_NAMESPACE=true
 typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='k|kubectl|helm|kubens|kubectx|oc|istioctl|kogito'
+
+typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_DEFAULT_NAMESPACE=true
 
 ###############################################################################
 # Git                                                                         #
 ###############################################################################
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
-export NVM_DIR="/Users/$USER/.nvm"
+export NVM_DIR="/Users/aaqa/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # add global node_modules in NODE_PATH
@@ -109,8 +112,12 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$GEM_HOME/bin:$PATH"
+export PATH="$GEM_PATH/bin:$PATH"
 export PATH="$HOME/chectl/bin:$PATH"
+
+if which ruby >/dev/null && which gem >/dev/null; then
+  PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
 
 # export CHE_DOMAIN=$(kubectl get services --namespace ingress-nginx -o jsonpath='{.items[*].spec.clusterIP}')
 
