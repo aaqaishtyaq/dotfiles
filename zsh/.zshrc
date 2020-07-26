@@ -28,12 +28,6 @@ alias ga="git add"
 alias gc="git commit -m"
 alias dev="cd ${HOME}/Developer/"
 alias hr="cd ~/Developer/hackerrank/"
-alias hr-start-run="~/Developer/scripts/start-hackerrank-workspace.sh --setup"
-alias hr-start="~/Developer/scripts/start-hackerrank-workspace.sh"
-alias rtest="RAILS_ENV=test bundle exec rspec"
-alias sprec="RAILS_ENV=test bin/rspec"
-alias ssh_private="ssh ubuntu@10.16.32.16"
-alias ssh_build="ssh ubuntu@build.vpc.hackerrank.com"
 
 #Locale setting for python iterm2
 export LC_ALL=en_US.UTF-8
