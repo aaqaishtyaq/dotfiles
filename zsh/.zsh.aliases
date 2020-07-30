@@ -14,7 +14,7 @@ alias glog="git log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(ye
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
-alias dev="cd ${HOME}/Developer/"
+alias dev='cd $HOME/Developer'
 alias hr="cd ~/Developer/hackerrank/"
 alias kctx="kubectx"
 alias kns="kunens"

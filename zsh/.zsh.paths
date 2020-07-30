@@ -4,13 +4,15 @@
 # Paths                                                                       #
 ###############################################################################
 
+# shellcheck disable=SC2202 disable=SC2154
 function kube() {
-  if [ $commands[kubectl] ]; then
+  if [ "$commands"[kubectl] ]; then
       source <(kubectl completion zsh)
   fi
 }
 
 # add global node_modules in NODE_PATH
+# shellcheck disable=SC2155
 export NODE_PATH="$(npm root -g)"
 
 export NVM_DIR="/Users/aaqa/.nvm"
@@ -25,4 +27,6 @@ export GEM_PATH="/Users/aaqa/.asdf/shims/"
 export PATH="$GEM_PATH/bin:$PATH"
 
 . $(brew --prefix asdf)/asdf.sh
+
+# shellcheck disable=SC2206
 fpath=(${ASDF_DIR}/completions $fpath)

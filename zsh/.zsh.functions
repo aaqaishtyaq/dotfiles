@@ -7,18 +7,18 @@
 # Start local_ops
 ops() {
     local task="${1:-start}"
-    local_ops $task -s hrw-slim --tmux
+    local_ops "$task" -s hrw-slim --tmux
 }
 
 # Change aws profile
 aws-prf() {
-    local profile="${1:-hr-projects}"
-    echo AWS_PROFILE=$profile
+    local PROFILE="${1:-hr-projects}"
+    echo AWS_PROFILE="$PROFILE"
 }
 
 # create a temporary file and open it for editing
 tmpf() {
-    ${EDITOR} +"set filetype=$1" + /tmp/temp-$(date +'%Y%m%d-%H%M%S')
+    ${EDITOR} +"set filetype=$1" + "/tmp/temp-$(date +'%Y%m%d-%H%M%S')"
 }
 
 # create a temporary directory and enter it
@@ -51,12 +51,12 @@ serve() {
 
 # better history command
 fh() {
-    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history | uniq) | fzf +s --tac | sed 's/ *[0-9]* *//')
+    print -z "$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history | uniq) | fzf +s --tac | sed 's/ *[0-9]* *//')"
 }
 
 # move to the top-level parent directory
 cdp() {
-    TEMP_PWD=`pwd`
+    TEMP_PWD="$(pwd)"
     while ! [ -d .git ]; do
         cd ..
     done
