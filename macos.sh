@@ -101,3 +101,6 @@ defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
+# Text For Alacritty
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+defaults delete -g CGFontRenderingFontSmoothingDisable

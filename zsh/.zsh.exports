@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+###############################################################################
+# Environment Variables                                                       #
+###############################################################################
+
+export TERM="xterm-256color"
+export ZSH=/Users/$USER/.oh-my-zsh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+# export CHE_DOMAIN=$(kubectl get services --namespace ingress-nginx -o jsonpath='{.items[*].spec.clusterIP}')
+
+#Locale setting for python iterm2
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
