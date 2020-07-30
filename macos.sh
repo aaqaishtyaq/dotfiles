@@ -1,3 +1,10 @@
+#!/usr/bin/env bash
+
+# macOS - Apple macOS system settings
+# =========================================================
+# - https://github.com/aaqaishtyaq/dotfiles
+# - https://aaqa.dev
+
 ################
 # MacOS settings
 ################

@@ -25,20 +25,16 @@ brew 'zsh'
 
 # Casks
 cask 'alfred'
-cask 'android-file-transfer'
 cask 'docker'
 cask 'firefox-developer-edition'
 cask 'google-chrome'
-cask 'iina'
-cask 'postman'
 cask 'slack'
-cask 'spark'
-cask 'spotify'
 cask 'transmission'
 cask 'vlc'
 cask 'visual-studio-code'
 
 # Fonts
+cask 'font-blexmono-nerd-font'
 cask 'font-firacode-nerd-font-mono'
 cask 'font-hack-nerd-font'
 cask 'font-sourcecodepro-nerd-font'
