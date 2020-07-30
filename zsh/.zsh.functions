@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+###############################################################################
+# Functions                                                                   #
+###############################################################################
+
+# Start local_ops
+ops() {
+    local task="${1:-start}"
+    local_ops $task -s hrw-slim --tmux
+}
+
+# Change aws profile
+aws-prf() {
+    local profile="${1:-hr-projects}"
+    echo AWS_PROFILE=$profile
+}
+
+# create a temporary file and open it for editing
+tmpf() {
+    ${EDITOR} +"set filetype=$1" + /tmp/temp-$(date +'%Y%m%d-%H%M%S')
+}
+
+# create a temporary directory and enter it
+tmpd() {
+    local dir
+    if [ $# -eq 0 ]; then
+        dir=$(mktemp -d)
+    else
+        dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+    fi
+    cd "$dir" || exit
+}
+
+# exec into docker container
+de() {
+    local cid
+    cid=$(docker ps -a --format "{{.ID}} \t{{.Names}}\t {{.Status}}\t{{.Image}}" | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+    [ -n "$cid" ] && docker exec -it "$cid" bash
+}
+
+# serve current directory over http
+serve() {
+    local port="${1:-8000}"
+    sleep 1 && open "http://localhost:${port}/" &
+
+    # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+    # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
+    python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+}
+
+# better history command
+fh() {
+    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history | uniq) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+# move to the top-level parent directory
+cdp() {
+    TEMP_PWD=`pwd`
+    while ! [ -d .git ]; do
+        cd ..
+    done
+    OLDPWD=$TEMP_PWD
+}

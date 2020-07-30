@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+
+###############################################################################
+# Powerline                                                                   #
+###############################################################################
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+#PowerLine plugin
+# source ~/.oh-my-zsh/custom/themes/powerlevel10k
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh root_indicator virtualenv dir dir_writable vcs kubecontext)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status asdf)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="000"
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="007"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="001"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="000"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="001"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="000"
+POWERLEVEL9K_RVM_BACKGROUND="black"
+POWERLEVEL9K_RVM_FOREGROUND="249"
+POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_COLOR="red"
+POWERLEVEL9K_TIME_BACKGROUND="black"
+POWERLEVEL9K_TIME_FOREGROUND="249"
+POWERLEVEL9K_TIME_FORMAT="\UF43A %D{%I:%M  \UF133  %d.%m.%y}"
+POWERLEVEL9K_RVM_BACKGROUND="black"
+POWERLEVEL9K_RVM_FOREGROUND="249"
+POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_COLOR="blue"
+POWERLEVEL9K_NODE_VERSION_BACKGROUND="black"
+POWERLEVEL9K_NODE_VERSION_FOREGROUND="green"
+POWERLEVEL9K_STATUS_VERBOSE=false
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='black'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='green'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='black'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='cyan'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='black'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='blue'
+POWERLEVEL9K_FOLDER_ICON=''
+POWERLEVEL9K_STATUS_OK=false
+POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE=true
+POWERLEVEL9K_STATUS_VERBOSE=false
+#POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+POWERLEVEL9K_VCS_UNTRACKED_ICON='\u25CF'
+POWERLEVEL9K_VCS_UNSTAGED_ICON='\u00b1'
+POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
+POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
+POWERLEVEL9K_VCS_COMMIT_ICON="\uf417"
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{red}\u256D\u2500%f"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{red}\u2570\uf460%f "
+#(command_execution_time  status  timen node_version)
+HIST_STAMPS="mm/dd/yyyy"
+DISABLE_UPDATE_PROMPT=true
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND='black'
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND='white'
+POWERLEVEL9K_KUBECONTEXT_SHORTEN=(gke eks)
+typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_DEFAULT_NAMESPACE=true
+typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='k|kubectl|helm|kubens|kubectx|oc|istioctl|kogito'
+typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_DEFAULT_NAMESPACE=true
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+typeset -g POWERLEVEL9K_ASDF_FOREGROUND="black"
+typeset -g POWERLEVEL9K_ASDF_SOURCES=(shell local global)
+
+# If set to false, hide tool versions that are the same as global.
+#
+# Note: The name of this parameter doesn't reflect its meaning at all.
+# Note: If this parameter is set to true, it won't hide tools.
+# Tip:  Override this parameter for ${TOOL} with POWERLEVEL9K_ASDF_${TOOL}_PROMPT_ALWAYS_SHOW.
+typeset -g POWERLEVEL9K_ASDF_PROMPT_ALWAYS_SHOW=true
+
+# If set to false, hide tool versions that are equal to "system".
+#
+# Note: If this parameter is set to true, it won't hide tools.
+# Tip: Override this parameter for ${TOOL} with POWERLEVEL9K_ASDF_${TOOL}_SHOW_SYSTEM.
+typeset -g POWERLEVEL9K_ASDF_SHOW_SYSTEM=true
+
+# If set to non-empty value, hide tools unless there is a file matching the specified file pattern
+# in the current directory, or its parent diretory, or its grandparent directory, and so on.
+#
+# Note: If this parameter is set to empty value, it won't hide tools.
+# Note: SHOW_ON_UPGLOB isn't specific to asdf. It works with all prompt segments.
+# Tip: Override this parameter for ${TOOL} with POWERLEVEL9K_ASDF_${TOOL}_SHOW_ON_UPGLOB.
+#
+# Example: Hide nodejs version when there is no package.json and no *.js files in the current
+# directory, in `..`, in `../..` and so on.
+#
+#   typeset -g POWERLEVEL9K_ASDF_NODEJS_SHOW_ON_UPGLOB='*.js|package.json'
+typeset -g POWERLEVEL9K_ASDF_SHOW_ON_UPGLOB=
+
+# Ruby version from asdf.
+typeset -g POWERLEVEL9K_ASDF_RUBY_BACKGROUND=000
+typeset -g POWERLEVEL9K_ASDF_RUBY_FOREGROUND=249
+
+# Python version from asdf.
+typeset -g POWERLEVEL9K_ASDF_PYTHON_FOREGROUND=37
+# typeset -g POWERLEVEL9K_ASDF_PYTHON_VISUAL_IDENTIFIER_EXPANSION='⭐'
+# typeset -g POWERLEVEL9K_ASDF_PYTHON_SHOW_ON_UPGLOB='*.foo|*.bar'
+
+# Go version from asdf.
+typeset -g POWERLEVEL9K_ASDF_GOLANG_FOREGROUND=37
+# typeset -g POWERLEVEL9K_ASDF_GOLANG_VISUAL_IDENTIFIER_EXPANSION='⭐'
+# typeset -g POWERLEVEL9K_ASDF_GOLANG_SHOW_ON_UPGLOB='*.foo|*.bar'
+
+# Node.js version from asdf.
+typeset -g POWERLEVEL9K_ASDF_NODEJS_FOREGROUND=70
+# typeset -g POWERLEVEL9K_ASDF_NODEJS_VISUAL_IDENTIFIER_EXPANSION='⭐'
+# typeset -g POWERLEVEL9K_ASDF_NODEJS_SHOW_ON_UPGLOB='*.foo|*.bar'
+
+# Rust version from asdf.
+typeset -g POWERLEVEL9K_ASDF_RUST_FOREGROUND=37
+# typeset -g POWERLEVEL9K_ASDF_RUST_VISUAL_IDENTIFIER_EXPANSION='⭐'
+# typeset -g POWERLEVEL9K_ASDF_RUST_SHOW_ON_UPGLOB='*.foo|*.bar'
