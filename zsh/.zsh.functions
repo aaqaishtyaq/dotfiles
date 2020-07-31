@@ -13,7 +13,17 @@ ops() {
 # Change aws profile
 aws-prf() {
     local PROFILE="${1:-hr-projects}"
-    echo AWS_PROFILE="$PROFILE"
+    export AWS_PROFILE="$PROFILE"
+}
+
+# list_out_all_256_colors
+color_ls() {
+    for i in {0..255} ; do
+        printf "\x1b[48;5;%sm%3d\e[0m " "$i" "$i"
+        if (( i == 15 )) || (( i > 15 )) && (( (i-15) % 6 == 0 )); then
+            printf "\n";
+        fi
+    done
 }
 
 # create a temporary file and open it for editing
