@@ -6,17 +6,25 @@
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# shellcheck disable=SC2154
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 #PowerLine plugin
 # source ~/.oh-my-zsh/custom/themes/powerlevel10k
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh root_indicator virtualenv dir dir_writable vcs kubecontext aws gcloud)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status asdf)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+  os_icon
+  ssh
+  root_
+  indicator
+  virtualenv
+  dir
+  dir_writable
+  vcs
+  kubecontext
+  aws
+  gcloud
+)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+  status
+  asdf
+)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
@@ -76,7 +84,7 @@ typeset -g POWERLEVEL9K_ASDF_SOURCES=(shell local global)
 typeset -g POWERLEVEL9K_AWS{,_ASSUME_ROLE}_SHOW_ON_COMMAND='aws|awless|terraform|k|kubectl|helm|kubens|kubectx|oc|istioctl|kogito'
 typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gcs|k|kubectl|helm|kubens|kubectx|oc|istioctl|kogito'
 typeset -g POWERLEVEL9K_AWS_BACKGROUND='black'
-typeset -g POWERLEVEL9K_AWS_FOREGROUND='11'
+typeset -g POWERLEVEL9K_AWS_FOREGROUND='011'
 typeset -g POWERLEVEL9K_GCLOUD_BACKGROUND='black'
 typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND='blue'
 
@@ -94,39 +102,14 @@ typeset -g POWERLEVEL9K_ASDF_PROMPT_ALWAYS_SHOW=true
 # Tip: Override this parameter for ${TOOL} with POWERLEVEL9K_ASDF_${TOOL}_SHOW_SYSTEM.
 typeset -g POWERLEVEL9K_ASDF_SHOW_SYSTEM=true
 
-# If set to non-empty value, hide tools unless there is a file matching the specified file pattern
-# in the current directory, or its parent diretory, or its grandparent directory, and so on.
-#
-# Note: If this parameter is set to empty value, it won't hide tools.
-# Note: SHOW_ON_UPGLOB isn't specific to asdf. It works with all prompt segments.
-# Tip: Override this parameter for ${TOOL} with POWERLEVEL9K_ASDF_${TOOL}_SHOW_ON_UPGLOB.
-#
-# Example: Hide nodejs version when there is no package.json and no *.js files in the current
-# directory, in `..`, in `../..` and so on.
-#
-#   typeset -g POWERLEVEL9K_ASDF_NODEJS_SHOW_ON_UPGLOB='*.js|package.json'
-typeset -g POWERLEVEL9K_ASDF_SHOW_ON_UPGLOB=
-
 # Ruby version from asdf.
 typeset -g POWERLEVEL9K_ASDF_RUBY_BACKGROUND=000
 typeset -g POWERLEVEL9K_ASDF_RUBY_FOREGROUND=249
 
-# Python version from asdf.
-typeset -g POWERLEVEL9K_ASDF_PYTHON_FOREGROUND=37
-# typeset -g POWERLEVEL9K_ASDF_PYTHON_VISUAL_IDENTIFIER_EXPANSION='⭐'
-# typeset -g POWERLEVEL9K_ASDF_PYTHON_SHOW_ON_UPGLOB='*.foo|*.bar'
 
-# Go version from asdf.
-typeset -g POWERLEVEL9K_ASDF_GOLANG_FOREGROUND=37
-# typeset -g POWERLEVEL9K_ASDF_GOLANG_VISUAL_IDENTIFIER_EXPANSION='⭐'
-# typeset -g POWERLEVEL9K_ASDF_GOLANG_SHOW_ON_UPGLOB='*.foo|*.bar'
-
-# Node.js version from asdf.
-typeset -g POWERLEVEL9K_ASDF_NODEJS_FOREGROUND=70
-# typeset -g POWERLEVEL9K_ASDF_NODEJS_VISUAL_IDENTIFIER_EXPANSION='⭐'
-# typeset -g POWERLEVEL9K_ASDF_NODEJS_SHOW_ON_UPGLOB='*.foo|*.bar'
-
-# Rust version from asdf.
-typeset -g POWERLEVEL9K_ASDF_RUST_FOREGROUND=37
-# typeset -g POWERLEVEL9K_ASDF_RUST_VISUAL_IDENTIFIER_EXPANSION='⭐'
-# typeset -g POWERLEVEL9K_ASDF_RUST_SHOW_ON_UPGLOB='*.foo|*.bar'
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+# shellcheck disable=SC2154
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
