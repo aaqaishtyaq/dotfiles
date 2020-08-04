@@ -48,18 +48,7 @@ install_nvm () {
     curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 }
 
-
-echo "Generating ssh keys, adding to ssh-agent..."
-read -p 'Input email for ssh key: ' useremail
-
-echo "Use default ssh file location, enter a passphrase: "
-ssh-keygen -t rsa -b 4096 -C "$useremail"  # will prompt for password
-eval "$(ssh-agent -s)"
-
-# Now that sshconfig is synced add key to ssh-agent and
-# store passphrase in keychain
-ssh-add -K ~/.ssh/id_rsa
-
+add_ssh_to_keychain() {
 # If you're using macOS Sierra 10.12.2 or later, you will need to modify your ~/.ssh/config file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 
     if [ -e ~/.ssh/config ]
@@ -74,6 +63,19 @@ ssh-add -K ~/.ssh/id_rsa
 		    IdentityFile ~/.ssh/id_rsa
 EOT
 fi
+}
+
+echo "Generating ssh keys, adding to ssh-agent..."
+read -r -p 'Input email for ssh key: ' useremail
+
+echo "Use default ssh file location, enter a passphrase: "
+ssh-keygen -t rsa -b 4096 -C "$useremail"  # will prompt for password
+eval "$(ssh-agent -s)"
+
+# Now that sshconfig is synced add key to ssh-agent and
+# store passphrase in keychain
+ssh-add -K ~/.ssh/id_rsa
+add_ssh_to_keychain
 
 brew update
 brew upgrade
