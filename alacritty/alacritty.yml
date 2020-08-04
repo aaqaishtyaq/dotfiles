@@ -13,6 +13,7 @@ window:
   dynamic_padding: false
   decorations: buttonless
   startup_mode: Windowed
+  dynamic_title: true
 
 scrolling:
   history: 10000
@@ -128,7 +129,7 @@ colors:
     cyan:    '#82AAFF'
     white:   '#ffffff'
 
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
   color: '#ffffff'
@@ -173,8 +174,6 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
-
-dynamic_title: true
 
 cursor:
   style: Block

@@ -1,4 +1,4 @@
-export ZSH="/home/$USER/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="bureau"
 
@@ -42,5 +42,7 @@ export EDITOR='vim'
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias sl="ls -al"
 alias glog="git log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $ZSH/oh-my-zsh.sh

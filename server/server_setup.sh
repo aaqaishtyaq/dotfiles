@@ -15,10 +15,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM
 cp -rf .zshrc ~/
 cp .vimrc ~/
 cp .screenrc ~/
-tmuxconf
 
-sudo chsh -s "$(command -v zsh)"
-
-
+chsh -s "$(command -v zsh)"
 
 exit 0
