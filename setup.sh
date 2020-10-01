@@ -28,7 +28,7 @@ install_oh_my_zsh () {
     if [ -f /bin/zsh ] || [ -f /usr/bin/zsh ]; then
         # Install Oh My Zsh if it isn't already present
         if [[ ! -d $HOME/oh-my-zsh/ ]]; then
-            sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+            sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
         fi
     fi
 }

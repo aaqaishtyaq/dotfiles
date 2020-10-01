@@ -7,12 +7,17 @@
 # Start local_ops
 ops() {
     local task="${1:-start}"
+    if [[ $task == 'start' ]]; then
+        local_ops okta login
+    else
+        echo -e "\n\033[33mSkipping OKTA Login\033[0m\n"
+    fi
     local_ops "$task" -s hrw-slim --tmux
 }
 
 _rspec() {
     command="RAILS_ENV=test rspec $1"
-    docker exec -it hrw-rails "bash && $command && exit"
+    local_ops run -s hrw-rails -c "exec" -a "$command && exit"
 }
 
 # Change aws profile
