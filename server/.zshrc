@@ -38,6 +38,8 @@ plugins=(
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 export EDITOR='vim'
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias sl="ls -al"
