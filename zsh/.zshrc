@@ -6,7 +6,7 @@
 # - https://aaqa.dev
 
 # source shell config
-for file in ~/.config/zsh/.zsh.{functions,prompt,exports,aliases,keybindings,paths}; do
+for file in ~/.config/zsh/.zsh.*; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
 	fi
