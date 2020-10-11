@@ -9,7 +9,10 @@ basic_utilities() {
 	sudo apt-get -y install git \
 		neofetch fortune cowsay \
 		wget curl htop python3-pip \
-		dnsutils screen tmux
+		dnsutils screen tmux locales
+
+	sudo locale-gen en_US.UTF-8
+	
 }
 
 # setup_shell() {
@@ -56,9 +59,10 @@ install_docker() {
 	newgrp docker
 }
 
-# basic_utilities
-# install_docker
-# setup_shell
+basic_utilities
+install_docker
 link_config
+setup_zsh
+# setup_shell
 
 exit 0
