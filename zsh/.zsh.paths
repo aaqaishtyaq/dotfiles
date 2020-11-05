@@ -22,6 +22,11 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export GEM_PATH="/Users/aaqa/.asdf/shims/"
 export PATH="$GEM_PATH/bin:$PATH"
 
+GOROOT="$(brew --prefix golang)/libexec"
+export GOPATH=$HOME/go
+export GOROOT
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
 . $(brew --prefix asdf)/asdf.sh
 
 # shellcheck disable=SC2206
