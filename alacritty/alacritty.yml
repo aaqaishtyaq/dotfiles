@@ -106,6 +106,7 @@ colors:
   ##ff3845
   ##ba222f
   ##b77ee0
+  ##56b6c2
 
   ### Dang Black Colour
   # Normal colors
@@ -114,9 +115,9 @@ colors:
     red:     '#c92432'
     green:   '#2DBB54'
     yellow:  '#FFB835'
-    blue:    '#2ec7ff'
+    blue:    '#5B8FFF'
     magenta: '#9340ff'
-    cyan:    '#5B8FFF'
+    cyan:    '#2ec7ff'
     white:   '#ffffff'
   # Bright colors
   bright:
@@ -124,9 +125,9 @@ colors:
     red:     '#f42c3e'
     green:   '#7ec16e'
     yellow:  '#fe8019'
-    blue:    '#56b6c2'
+    blue:    '#82AAFF'
     magenta: '#ff6ac1'
-    cyan:    '#82AAFF'
+    cyan:    '#56b6c2'
     white:   '#ffffff'
 
 bell:
