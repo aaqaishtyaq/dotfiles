@@ -41,6 +41,38 @@ tmpf() {
     ${EDITOR} +"set filetype=$1" + "/tmp/temp-$(date +'%Y%m%d-%H%M%S')"
 }
 
+# Exec into che containers
+_kx() {
+    local KOUTPUT
+    local NAMESPACE
+    local POD
+    local CONTAINER
+    KOUTPUT=$(kubectl get pods --all-namespaces | grep "$1")
+    NAMESPACE=$(echo "$KOUTPUT" | awk '{print $1}')
+    POD=$(echo "$KOUTPUT" | awk '{print $2}')
+    CONTAINER=${2:-dev}
+
+    kubectl exec -it "$POD" -n "$NAMESPACE" -c "$CONTAINER" bash
+}
+
+# QA Rails Exec
+_qx() {
+    kubectx hr-qa
+    local POD
+    POD=$(kubectl get pods -n qatest | grep hrw-web-rails | awk 'FNR==1{print $1}')
+    kubectl exec -it "$POD" -n qatest -c rails bash
+}
+
+# Private/PreProd Rails Exec
+_px() {
+    kubectx hr-private
+    local NAMESPACE
+    local POD
+    NAMESPACE="${2:-rba}"
+    POD=$(kubectl get pods -n "$NAMESPACE" | grep hrw-web-rails | awk 'FNR==1{print $1}')
+    kubectl exec -it "$POD" -n "$NAMESPACE" -c rails bash
+}
+
 # create a temporary directory and enter it
 tmpd() {
     local dir

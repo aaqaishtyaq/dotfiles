@@ -17,4 +17,5 @@ alias gc="git commit -m"
 alias dev='cd $HOME/Developer'
 alias hr="cd ~/Developer/hackerrank/"
 alias kctx="kubectx"
+alias kx="kubectx"
 alias kns="kunens"
