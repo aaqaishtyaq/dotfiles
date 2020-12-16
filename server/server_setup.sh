@@ -10,11 +10,11 @@ sudo apt-get -y install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Zsh Syntax highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
-cp -rf .zshrc ~/
-cp .vimrc ~/
-cp .screenrc ~/
+git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/custom//plugins/zsh-syntax-highlighting"
+cp -rf .zshrc "$HOME/.zshrc"
+cp .vimrc "$HOME/.vimrc"
+cp .screenrc "$HOME/.screenrc"
 
 chsh -s "$(command -v zsh)"
 

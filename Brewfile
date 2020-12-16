@@ -21,6 +21,8 @@ brew 'shellcheck'
 brew 'tmux'
 brew 'tree'
 brew 'zsh'
+brew 'wget'
+brew 'certbot'
 
 
 # Casks

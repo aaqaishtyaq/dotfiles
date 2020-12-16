@@ -6,11 +6,20 @@
 # - https://aaqa.dev
 
 # source shell config
-for file in ~/.config/zsh/.zsh.*; do
+for file in ~/.config/zsh/*.zsh; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
 	fi
 done
+
+NEW_PROMPT=false
+
+# Do not load p10k if want new prompt
+if [ "$NEW_PROMPT" = true ]; then
+	activate_rigel
+else
+	ZSH_THEME="powerlevel10k/powerlevel10k"
+fi
 
 plugins=(
   git osx zsh-autosuggestions zsh-z kubectl minikube
@@ -26,21 +35,6 @@ git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 ###############################################################################
 # Source                                                                      #
 ###############################################################################
-
-# work-specific configuration and exports
-[ -f ~/.zsh.hackerrank ] && source ~/.zsh.hackerrank
-
-# shellcheck disable=SC1091
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/aaqa/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aaqa/google-cloud-sdk/path.zsh.inc'; fi
-
-# shellcheck disable=SC1091
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/aaqa/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aaqa/google-cloud-sdk/completion.zsh.inc'; fi
-
-# add global node_modules in NODE_PATH
-# shellcheck disable=SC2155
-export NODE_PATH="$(npm root -g)"
 
 # Source the zsh
 source "$ZSH/oh-my-zsh.sh"
