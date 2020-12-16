@@ -52,7 +52,7 @@ _kx() {
     POD=$(echo "$KOUTPUT" | awk '{print $2}')
     CONTAINER=${2:-dev}
 
-    kubectl exec -it "$POD" -n "$NAMESPACE" -c "$CONTAINER" bash
+    kubectl exec -it "$POD" -n "$NAMESPACE" -c "$CONTAINER" -- bash
 }
 
 # QA Rails Exec
@@ -60,7 +60,7 @@ _qx() {
     kubectx hr-qa
     local POD
     POD=$(kubectl get pods -n qatest | grep hrw-web-rails | awk 'FNR==1{print $1}')
-    kubectl exec -it "$POD" -n qatest -c rails bash
+    kubectl exec -it "$POD" -n qatest -c rails -- bash
 }
 
 # Private/PreProd Rails Exec
@@ -68,9 +68,13 @@ _px() {
     kubectx hr-private
     local NAMESPACE
     local POD
-    NAMESPACE="${2:-rba}"
+    NAMESPACE="${1:-rba}"
     POD=$(kubectl get pods -n "$NAMESPACE" | grep hrw-web-rails | awk 'FNR==1{print $1}')
-    kubectl exec -it "$POD" -n "$NAMESPACE" -c rails bash
+    kubectl exec -it "$POD" -n "$NAMESPACE" -c rails -- bash
+}
+
+dots() {
+    code "$HOME/Developer/dotfiles"
 }
 
 # create a temporary directory and enter it

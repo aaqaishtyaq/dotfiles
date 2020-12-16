@@ -4,8 +4,6 @@
 # Powerline                                                                   #
 ###############################################################################
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
 #PowerLine plugin
 # source ~/.oh-my-zsh/custom/themes/powerlevel10k
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(

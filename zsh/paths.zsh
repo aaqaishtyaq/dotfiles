@@ -26,3 +26,11 @@ export PATH="$GEM_PATH/bin:$PATH"
 
 # shellcheck disable=SC2206
 fpath=(${ASDF_DIR}/completions $fpath)
+
+# shellcheck disable=SC1091
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/aaqa/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aaqa/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# shellcheck disable=SC1091
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/aaqa/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aaqa/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
