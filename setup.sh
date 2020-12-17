@@ -44,8 +44,14 @@ setup_ohmyzsh () {
     fi
 }
 
-install_nvm () {
-    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+# install_nvm () {
+#     curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+# }
+
+setup_neovim() {
+    # Install Plug
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
 
 add_ssh_to_keychain() {
