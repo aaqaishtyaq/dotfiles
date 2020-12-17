@@ -19,3 +19,7 @@ alias hr="cd ~/Developer/hackerrank/"
 alias kctx="kubectx"
 alias kx="kubectx"
 alias kns="kunens"
+alias ctags='/usr/local/bin/ctags'
+alias vim='nvim'
+alias e='nvim'
+

@@ -23,6 +23,8 @@ brew 'tree'
 brew 'zsh'
 brew 'wget'
 brew 'certbot'
+brew 'the_silver_searcher'
+brew 'ripgrep'
 
 
 # Casks
