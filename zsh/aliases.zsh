@@ -4,10 +4,13 @@
 # Alias                                                                       #
 ###############################################################################
 
-alias ls="ls -G"
+if [ "$MACOS" ]; then
+   alias dircolors='gdircolors'
+fi
+
+alias ls="ls -G -h"
 alias le="exa -l"
 alias tree-"exa -T"
-alias ex_ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias sl="ls -al"
 alias brewclean="brew update && brew upgrade && brew cleanup; brew doctor"
 alias glog="git log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -22,4 +25,6 @@ alias kns="kunens"
 alias ctags='/usr/local/bin/ctags'
 alias vim='nvim'
 alias e='nvim'
-
+alias chmox="chmod u+x"
+alias ipinfo="curl ipinfo.io"
+alias weather="curl wttr.in"

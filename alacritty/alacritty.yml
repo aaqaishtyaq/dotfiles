@@ -12,7 +12,7 @@ window:
     y: 10
   dynamic_padding: false
   decorations: buttonless
-  startup_mode: Windowed
+  startup_mode: Fullscreen
   dynamic_title: true
 
 scrolling:
@@ -37,6 +37,7 @@ font:
     x: 0
     y: 0
   use_thin_strokes: true
+
 draw_bold_text_with_bright_colors: true
 
 # # Colors (Blood Moon)
@@ -72,16 +73,65 @@ draw_bold_text_with_bright_colors: true
 #     white:   '#ebdbb2'
 
 colors:
-  # Default colors
-  primary:
-    background: '#000000'
-    foreground: '#ffffff'
 
+  # # Default colors
+  # primary:
+  #   background: '#000000'
+  #   foreground: '#ffffff'
+
+  # cursor:
+  #  text: '#ffffff'
+  #  cursor: '#6227ae'
+
+  # ### Dang Black Colour
+  # # Normal colors
+  # normal:
+  #   black:   '#000000'
+  #   red:     '#c92432'
+  #   green:   '#2DBB54'
+  #   yellow:  '#FFB835'
+  #   blue:    '#5B8FFF'
+  #   magenta: '#9340ff'
+  #   cyan:    '#2ec7ff'
+  #   white:   '#ffffff'
+  # # Bright colors
+  # bright:
+  #   black:   '#5b5d61'
+  #   red:     '#f42c3e'
+  #   green:   '#7ec16e'
+  #   yellow:  '#fe8019'
+  #   blue:    '#82AAFF'
+  #   magenta: '#ff6ac1'
+  #   # cyan:    '#56b6c2'
+  #   cyan:    '#00A5CF'
+  #   white:   '#ffffff'
+
+  # DARX
   cursor:
-   text: '#ffffff'
-   cursor: '#6227ae'
+    text: '#ffffff'
+    cursor: '#3e588c'
 
-  # Normal colors
+  normal:
+    black:   '#282828'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#a89984'
+  bright:
+    black:   '#928374'
+    red:     '#f42c3e'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#99c6ca'
+    magenta: '#d3869b'
+    cyan:    '#7ec16e'
+    white:   '#ebdbb2'
+
+  # downhill: &downhill
+    # Normal colors
   # normal:
   #   black:   '#0F111D'
   #   red:     '#ff0037'
@@ -107,28 +157,6 @@ colors:
   ##ba222f
   ##b77ee0
   ##56b6c2
-
-  ### Dang Black Colour
-  # Normal colors
-  normal:
-    black:   '#000000'
-    red:     '#c92432'
-    green:   '#2DBB54'
-    yellow:  '#FFB835'
-    blue:    '#5B8FFF'
-    magenta: '#9340ff'
-    cyan:    '#2ec7ff'
-    white:   '#ffffff'
-  # Bright colors
-  bright:
-    black:   '#5b5d61'
-    red:     '#f42c3e'
-    green:   '#7ec16e'
-    yellow:  '#fe8019'
-    blue:    '#82AAFF'
-    magenta: '#ff6ac1'
-    cyan:    '#00A5CF'
-    white:   '#ffffff'
 
 bell:
   animation: EaseOutExpo
@@ -197,13 +225,13 @@ debug:
   # Log level
   #
   # Values for `log_level`:
-  #   - None
+  #   - Off
   #   - Error
   #   - Warn
   #   - Info
   #   - Debug
   #   - Trace
-  log_level: Warn
+  log_level: Off
 
   # Print all received window events.
   print_events: false

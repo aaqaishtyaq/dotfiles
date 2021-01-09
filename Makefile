@@ -1,3 +1,5 @@
+CONFIG_PATH = $(HOME)/.config
+
 .PHONY: dotfiles
 ## dotfiles: setup symlinks for dotfiles
 dotfiles:
@@ -13,6 +15,12 @@ dotfiles:
 	@ALACRITTY_PATH="$(HOME)/.config/alacritty"
 	@mkdir -p $(ALACRITTY_PATH)
 	@ln -fs "$(CURDIR)/alacritty/alacritty.yml" $(ALACRITTY_PATH)
+
+	@echo "symlinking dircolors"
+	@mkdir -p "$(CONFIG_PATH)/dircolors"
+	@echo "$(CURDIR)"
+	@ln -sf "$(CURDIR)/dircolors/dircolors" "$(CONFIG_PATH)/dircolors/.dircolors"
+
 
 .PHONY: help
 ## help: print this help message

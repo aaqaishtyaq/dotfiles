@@ -5,6 +5,10 @@
 # - https://github.com/aaqaishtyaw/dotfiles
 # - https://aaqa.dev
 
+if [[ $(uname -a) =~ Darwin ]]; then
+    local MACOS=true
+fi
+
 # source shell config
 for file in ~/.config/zsh/*.zsh; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
@@ -12,7 +16,7 @@ for file in ~/.config/zsh/*.zsh; do
 	fi
 done
 
-NEW_PROMPT=false
+NEW_PROMPT=true
 
 # Do not load p10k if want new prompt
 if [ "$NEW_PROMPT" = true ]; then
@@ -32,6 +36,15 @@ EDITOR=nvim
 # Git                                                                         #
 ###############################################################################
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+
+
+if which dircolors &>/dev/null; then
+  if [ -r ~/.dircolors ]; then
+    eval "$(dircolors -b ~/.dircolors)"
+  else
+    eval "$(dircolors -b)"
+  fi
+fi
 
 ###############################################################################
 # Source                                                                      #

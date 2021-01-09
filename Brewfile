@@ -25,7 +25,7 @@ brew 'wget'
 brew 'certbot'
 brew 'the_silver_searcher'
 brew 'ripgrep'
-
+brew 'asdf'
 
 # Casks
 cask 'alfred'

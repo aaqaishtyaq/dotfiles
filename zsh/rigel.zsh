@@ -40,14 +40,14 @@ gen-prompt () {
 
         local _git_status="$git_branch"
         if is_dirty; then
-          color=yellow
+          color=blue
           _git_status="${_git_status} $PLUSMINUS"
         else
           color=green
           _git_status="${_git_status}"
         fi
 
-        _line_1="$_line_1 %B%F{$color}%b[$_git_status]%f"
+        _line_1="$_line_1 %B%F{$color}%b($_git_status)%f"
     fi
 
     # Render python virtual env info, if available, in the prompt.
