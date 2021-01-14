@@ -4,56 +4,77 @@
 # Rigel                                                                       #
 ###############################################################################
 
-gen-prompt () {
+gen-prompt() {
     local prev_exit="$?"
-    local user_color="red"
+    local user_color="blue"
 
     if [ $prev_exit -eq 1 ]; then
-        user_color="yellow"
+        user_color="red"
     fi
+
+    local host_color="green"
 
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-        user_color="blue"
+        user_color="red"
+        host_color="red"
     fi
 
-    # local CONTEXT=$(cat ~/.kube/config | grep "current-context:" | sed "s/current-context: //")
-    # local k8s_context = echo "(k8s: ${CONTEXT})"
-    # [%B%F{$k8s_context}%B%F{red}]%f
+    local DIR=" %B%F{blue}%2~ %f%b"
+    local HOST="%F{${host_color}}%m%f"
+    SEG_1="$DIR"
+
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        local USER="%B%F{$user_color}%n%f%b"
+        SEG_1="$USER@$HOST"
+        RPROMPT="%F{green}%~%f"
+    fi
 
     ## Generate a simple, informative multiline prompt.
-    local _line_1="%B%F{$user_color}┌─[ %B%F{blue}%1~ %f%F{$user_color}]"
-    local _line_2="%F{$user_color}└─%(!.#.>)%f "
+    local _line_1="%F{red}┌─[$SEG_1%F{red}]%f"
+    local _line_2="%F{red}└─%(!.#.>)%f "
 
-    # shellcheck disable=SC2155
-    local git_branch=$(git symbolic-ref --short HEAD 2> /dev/null || {
+    local git_branch=$(git symbolic-ref --short HEAD 2>/dev/null || {
         git rev-list --max-count=1 HEAD 2>/dev/null | cut -c 1-8
     })
 
     # Render git info, if available, in the prompt.
     if [ "$git_branch" ]; then
-        is_dirty() {
-          test -n "$(git status --porcelain --ignore-submodules)"
-        }
+        local _git_status="$([ "$(git status --porcelain)" ] && echo "*")"
+        local _git_status_color="green"
 
-        # ±
-        PLUSMINUS="\u00b1"
+        # Ensure the index is up to date.
+        git update-index --really-refresh -q &>/dev/null
 
-        local _git_status="$git_branch"
-        if is_dirty; then
-          color=blue
-          _git_status="${_git_status} $PLUSMINUS"
-        else
-          color=green
-          _git_status="${_git_status}"
+        # Check for stashed files.
+        if $(git rev-parse --verify refs/stash &>/dev/null); then
+            _git_status='?'
         fi
 
-        _line_1="$_line_1 %B%F{$color}%b($_git_status)%f"
+        # Check for untracked files.
+        if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            _git_status_color="yellow"
+            _git_status=' !'
+        fi
+
+        # Check for unstaged changes.
+        if ! $(git diff-files --quiet --ignore-submodules --); then
+            _git_status_color="blue"
+            _git_status='*'
+        fi
+
+        # Check for uncommitted changes in the index.
+        if ! $(git diff --quiet --ignore-submodules --cached); then
+            _git_status_color="blue"
+            _git_status='+'
+        fi
+
+        _line_1="$_line_1 %B%F{magenta}±%b %F{$_git_status_color}($git_branch$_git_status)%f"
     fi
 
     # Render python virtual env info, if available, in the prompt.
-    if [[ -n "$VIRTUAL_ENV" ]];then
+    if [[ -n "$VIRTUAL_ENV" ]]; then
         local _venv_prompt=""
-        _line_1="$_line_1 %F{cyan}($(basename "$VIRTUAL_ENV"))%f"
+        _line_1="$_line_1 %F{blue}($(basename "$VIRTUAL_ENV"))%f"
     fi
 
     local _newline=$'\n'
@@ -62,5 +83,5 @@ gen-prompt () {
 }
 
 activate_rigel() {
-    PROMPT="$(gen-prompt)"
+    PROMPT='$(gen-prompt)'
 }

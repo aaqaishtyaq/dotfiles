@@ -16,8 +16,6 @@ for file in ~/.config/zsh/*.zsh; do
 	fi
 done
 
-NEW_PROMPT=true
-
 # Do not load p10k if want new prompt
 if [ "$NEW_PROMPT" = true ]; then
 	activate_rigel
@@ -39,8 +37,8 @@ git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 
 if which dircolors &>/dev/null; then
-  if [ -r ~/.dircolors ]; then
-    eval "$(dircolors -b ~/.dircolors)"
+  if [ -r ~/.config/dircolors/dircolors ]; then
+    eval "$(dircolors -b ~/.config/dircolors/dircolors)"
   else
     eval "$(dircolors -b)"
   fi

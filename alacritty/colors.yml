@@ -1,0 +1,59 @@
+# # Colors (Blood Moon)
+# colors:
+#   cursor:
+#     text: "#ffffff"
+#     cursor: "#f42c3e"
+#   # Default colors
+#   primary:
+#     background: '#21222d'
+#     foreground: '#f2e5bc'
+
+#   # Normal colors
+#   normal:
+#     black:   '#1d2021'
+#     red:     '#f42c3e'
+#     green:   '#78F868'
+#     yellow:  '#d79921'
+#     blue:    '#458588'
+#     magenta: '#b16286'
+#     cyan:    '#689d6a'
+#     white:   '#a89984'
+
+#   # Bright colors
+#   bright:
+#     black:   '#928374'
+#     red:     '#f42c3e'
+#     green:   '#7ec16e'
+#     yellow:  '#fabd2f'
+#     blue:    '#99c6ca'
+#     magenta: '#d3869b'
+#     cyan:    '#5B8FFF'
+#     white:   '#ebdbb2'
+
+  # downhill: &downhill
+    # Normal colors
+  # normal:
+  #   black:   '#0F111D'
+  #   red:     '#ff0037'
+  #   green:   '#78F868'
+  #   yellow:  '#FFB835'
+  #   blue:    '#27A9D8'
+  #   magenta: '#7834d1'
+  #   cyan:    '#5B8FFF'
+  #   white:   '#d0d0d0'
+
+  # # Bright colors
+  # bright:
+  #   black:   '#464B5D'
+  #   red:     '#ff1f4f'
+  #   green:   '#78bd65'
+  #   yellow:  '#FFCB6B'
+  #   blue:    '#89DDFF'
+  #   magenta: '#7834d1'
+  #   cyan:    '#82AAFF'
+  #   white:   '#ffffff'
+  ##FF0033
+  ##ff3845
+  ##ba222f
+  ##b77ee0
+  ##56b6c2
