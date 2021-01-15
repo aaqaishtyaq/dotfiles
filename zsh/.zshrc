@@ -26,6 +26,7 @@ plugins=(
 )
 
 ZSH_AUTOSUGGEST_USE_ASYNC=true
+EDITOR=nvim
 
 ###############################################################################
 # Git                                                                         #

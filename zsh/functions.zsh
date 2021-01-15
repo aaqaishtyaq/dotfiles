@@ -22,7 +22,7 @@ _rspec() {
 
 # Change aws profile
 aws-prf() {
-    local PROFILE="${1:-hr-projects}"
+    local PROFILE="${1:-hr-dev}"
     export AWS_PROFILE="$PROFILE"
 }
 
