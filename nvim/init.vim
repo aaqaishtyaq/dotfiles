@@ -17,6 +17,9 @@ set incsearch
 set hlsearch
 set bs=2
 set nobackup
+set noswapfile
+set nowritebackup
+
 set number
 set shell=bash
 " set mouse=a
@@ -36,6 +39,13 @@ set background=dark
 set undofile
 set undodir=/tmp
 set clipboard=unnamedplus
+
+" size of a hard tabstop
+set tabstop=2
+" always uses spaces instead of tab characters
+set expandtab
+" size of an "indent"
+set shiftwidth=2
 
 autocmd Filetype javascript setlocal sw=2 sts=2 expandtab
 autocmd Filetype python setlocal sw=4 sts=4 expandtab
@@ -59,7 +69,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf'
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-commentary'
 Plug 'vim-ruby/vim-ruby'
@@ -78,12 +88,21 @@ Plug 'junegunn/vim-emoji'
 Plug 'jreybert/vimagit'
 Plug 'co1ncidence/mountaineer.vim'
 Plug 'AlessandroYorba/Sierra'
+" Colorscheme SpaceCamp
 Plug 'jaredgorski/SpaceCamp'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 call plug#end()
 
 colorscheme spacecamp
 " Set colorscheme
 " autocmd vimenter * ++nested colorscheme mountaineer
+" colorscheme gruvbox
+"let g:gruvbox_transparent_bg=1
+hi Normal ctermbg=NONE " for transparent background
+hi SpellBad ctermbg=red " for transparent background
+hi SpellRare ctermbg=red
+hi Special ctermfg=cyan
 
 "  Lightline
 let g:lightline = {
@@ -108,7 +127,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:rg_highligh = 1
 
 " open/close nerdtree window
-map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 map <leader>r :NERDTreeFind<cr>
 " autocmd BufWinEnter * NERDTreeFind
 map ] :NERDTreeFind<CR>
@@ -122,6 +141,8 @@ let g:instant_markdown_autostart = 0         " Turns off auto preview
 let g:instant_markdown_browser = "surf"      " Uses surf for preview
 map <Leader>md :InstantMarkdownPreview<CR>   " Previews .md file
 map <Leader>ms :InstantMarkdownStop<CR
+
+nmap <leader>2 :set paste<CR>i
 
 " remap envoke key
 nnoremap <silent> <C-z> :FZF<CR>
@@ -149,6 +170,10 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " C-Backspace to clear a word
 inoremap <C-H> <C-W>
+
+" Better page down and page up
+noremap <C-n> <C-d>
+noremap <C-p> <C-b>
 
 set rtp+=/usr/local/bin/fzf
 
