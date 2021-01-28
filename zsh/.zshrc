@@ -6,7 +6,7 @@
 # - https://aaqa.dev
 
 if [[ $(uname -a) =~ Darwin ]]; then
-    local MACOS=true
+    MACOS=true
 fi
 
 # source shell config
