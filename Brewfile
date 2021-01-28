@@ -30,7 +30,7 @@ brew 'asdf'
 # Casks
 cask 'alfred'
 cask 'docker'
-cask 'firefox-developer-edition'
+cask 'firefox'
 cask 'google-chrome'
 cask 'slack'
 cask 'transmission'
