@@ -94,11 +94,11 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 call plug#end()
 
-colorscheme spacecamp
+" colorscheme spacecamp
 " Set colorscheme
 " autocmd vimenter * ++nested colorscheme mountaineer
-" colorscheme gruvbox
-"let g:gruvbox_transparent_bg=1
+colorscheme gruvbox
+let g:gruvbox_transparent_bg=1
 hi Normal ctermbg=NONE " for transparent background
 hi SpellBad ctermbg=red " for transparent background
 hi SpellRare ctermbg=red

@@ -56,7 +56,7 @@ _gitstatus_() {
             _git_status+=('●')
         fi
 
-        _git_status=" %F{$_git_status_color}[$git_branch$_git_status]%f"
+        _git_status=" %F{$_git_status_color}($git_branch$_git_status)%f"
         echo $_git_status
     fi
 }
