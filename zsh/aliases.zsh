@@ -6,6 +6,7 @@
 
 if [ "$MACOS" ]; then
    alias dircolors='gdircolors'
+   alias date='gdate'
 fi
 
 alias ls="ls -G -h"
@@ -23,8 +24,8 @@ alias kctx="kubectx"
 alias kx="kubectx"
 alias kns="kunens"
 alias ctags='/usr/local/bin/ctags'
-alias vim='nvim'
 alias e='nvim'
 alias chmox="chmod u+x"
 alias ipinfo="curl ipinfo.io"
 alias weather="curl wttr.in"
+which vim &>/dev/null && alias vim='nvim'
