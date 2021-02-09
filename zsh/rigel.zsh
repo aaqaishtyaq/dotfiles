@@ -39,7 +39,8 @@ gen-prompt() {
 
     # Render git info, if available, in the prompt.
     if [ "$git_branch" ]; then
-        local _git_status="$([ "$(git status --porcelain)" ] && echo "*")"
+        initial_status="$([ "$(git status --porcelain)" ] && echo " ")"
+        local _git_status=($initial_status)
         local _git_status_color="green"
 
         # Ensure the index is up to date.
@@ -47,28 +48,29 @@ gen-prompt() {
 
         # Check for stashed files.
         if $(git rev-parse --verify refs/stash &>/dev/null); then
-            _git_status='?'
+            _git_status+=('?')
         fi
 
         # Check for untracked files.
         if [ -n "$(git ls-files --others --exclude-standard)" ]; then
             _git_status_color="yellow"
-            _git_status=' !'
+            _git_status+=('!')
         fi
 
         # Check for unstaged changes.
         if ! $(git diff-files --quiet --ignore-submodules --); then
             _git_status_color="blue"
-            _git_status='*'
+            _git_status+=('±')
         fi
 
         # Check for uncommitted changes in the index.
         if ! $(git diff --quiet --ignore-submodules --cached); then
             _git_status_color="blue"
-            _git_status='+'
+            _git_status+=('●')
         fi
 
-        _line_1="$_line_1 %B%F{magenta}±%b %F{$_git_status_color}($git_branch$_git_status)%f"
+        _git_status=" %F{$_git_status_color}$git_branch$_git_status%f"
+        echo $_git_status
     fi
 
     # Render python virtual env info, if available, in the prompt.
