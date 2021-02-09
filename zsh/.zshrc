@@ -37,7 +37,7 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 
-if which dircolors &>/dev/null; then
+if command -v grep &>/dev/null; then
   if [ -r ~/.config/dircolors/dircolors ]; then
     eval "$(dircolors -b ~/.config/dircolors/dircolors)"
   else

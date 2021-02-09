@@ -12,7 +12,7 @@ mkdir -p "${dir}"
 
 tmpfile=$(mktemp)
 hnow "$*" > "${tmpfile}"
-echo -n "\n\n\n">> "${tmpfile}"
+printf "\n\n\n">> "${tmpfile}"
 if [ -e "${file}" ];then
   cat "${file}" >> "${tmpfile}"
 fi
@@ -21,7 +21,7 @@ mv "${tmpfile}" "${file}"
 echo "${file}"
 nvim +3 "${file}"
 
-cd "${dir}"
+cd "${dir}" || exit 1
 git add "${file}"
 git commit
 git push

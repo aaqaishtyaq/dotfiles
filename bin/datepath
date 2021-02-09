@@ -5,7 +5,7 @@
 # anything that can be passed to `date -d`.
 
 if [[ $(uname -a) =~ Darwin ]]; then
-    gdate +%4Y/%m/%d "-d $@"
+    gdate +%4Y/%m/%d "-d" "$@"
 else
-    date +%4Y/%m/%d "-d $@"
+    date +%4Y/%m/%d "-d" "$@"
 fi

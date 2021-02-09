@@ -28,4 +28,5 @@ alias e='nvim'
 alias chmox="chmod u+x"
 alias ipinfo="curl ipinfo.io"
 alias weather="curl wttr.in"
-which vim &>/dev/null && alias vim='nvim'
+
+command -v vim &>/dev/null && alias vim='nvim'
