@@ -8,7 +8,8 @@ if [ "$MACOS" ]; then
    alias dircolors='gdircolors'
    alias date='gdate'
 fi
-which vim &>/dev/null && alias vim='nvim'
+
+command -v vim &>/dev/null && alias vim='nvim'
 
 alias ls="ls -G -h"
 alias le="exa -l"

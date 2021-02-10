@@ -18,4 +18,5 @@ export DOCKER_BUILDKIT=0
 export COMPOSE_DOCKER_CLI_BUILD=0
 
 export EDITOR=nvim
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
