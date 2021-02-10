@@ -26,6 +26,7 @@ brew 'certbot'
 brew 'the_silver_searcher'
 brew 'ripgrep'
 brew 'asdf'
+brew 'gpg2'
 
 # Casks
 cask 'alfred'

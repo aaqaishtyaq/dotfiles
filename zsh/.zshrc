@@ -16,8 +16,6 @@ for file in ~/.config/zsh/*.zsh; do
 	fi
 done
 
-NEW_PROMPT=true
-
 # Do not load p10k if want new prompt
 if [ "$NEW_PROMPT" = true ]; then
 	activate_bellatrix
