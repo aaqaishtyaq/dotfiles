@@ -43,16 +43,18 @@ tmpf() {
 
 # Exec into che containers
 _kx() {
-    local KOUTPUT
-    local NAMESPACE
-    local POD
-    local CONTAINER
-    KOUTPUT=$(kubectl get pods --all-namespaces | grep "$1")
-    NAMESPACE=$(echo "$KOUTPUT" | awk '{print $1}')
-    POD=$(echo "$KOUTPUT" | awk '{print $2}')
-    CONTAINER=${2:-dev}
+    local koutput
+    local namespace
+    local pod
+    local container
+    local shell
+    koutput=$(kubectl get pods --all-namespaces | grep "$1")
+    namespace=$(echo "$koutput" | awk '{print $1}')
+    pod=$(echo "$koutput" | awk '{print $2}')
+    container=${2:-dev}
+    shell=${3:-bash}
 
-    kubectl exec -it "$POD" -n "$NAMESPACE" -c "$CONTAINER" -- bash
+    kubectl exec -it "$pod" -n "$namespace" -c "$container" -- "$shell"
 }
 
 # QA Rails Exec
