@@ -1,0 +1,17 @@
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = nvim
+[user]
+	name = Aaqa Ishtyaq
+	email = aaqa@hackerrank.com
+	signingkey = C4BE1CE588EB9E21
+[pull]
+	rebase = true
+[commit]
+	gpgsign = true
+[alias]
+	logs = log --show-signature
+[gpg]
+	program = /usr/local/bin/gpg
+[init]
+	templateDir = /Users/aaqa/.git-template
