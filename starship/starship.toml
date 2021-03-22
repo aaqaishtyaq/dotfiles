@@ -1,0 +1,64 @@
+# Starship config
+
+[username]
+style_user = "fg:#f42c3e bold"
+style_root = "black bold"
+
+[character]
+symbol="ᛥ"
+success_symbol = "[ᛥ](bold green)"
+error_symbol="[ᛥ](bright-red)"
+
+[golang]
+style="fg:#00ADD8"
+symbol="go"
+
+[directory]
+style="fg:#d442f5"
+truncation_length = 10
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+
+[hostname]
+ssh_only=true
+style = "bright-green"
+
+[cmd_duration]
+min_time=500
+show_milliseconds = false
+disabled = false
+style = "bold #f42c3e"
+
+[gcloud]
+disabled=true
+
+[memory_usage]
+disabled = true
+show_percentage = true
+threshold = 80
+
+[time]
+disabled = true
+
+[package]
+disabled=true
+
+[git_branch]
+disabled = false
+symbol = ""
+truncation_length = 100
+truncation_symbol = ""
+style = "bold purple"
+always_show_remote = true
+
+[git_status]
+disabled = false
+ahead = "(⇡${count} )"
+diverged = "(⇡${ahead_count}⇣${behind_count} )"
+behind = "(⇣${count} )"
+format = '[$ahead_behind]($style)([\[$all_status\] ]($style))'
+style = "blue bold"
+untracked = "U$count"
+staged = "A$count"
+modified = "M$count"
+deleted = "D$count"
+show_sync_count = true

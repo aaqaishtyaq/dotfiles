@@ -11,7 +11,11 @@
 	gpgsign = true
 [alias]
 	logs = log --show-signature
+	sl = "!git --no-pager log -n 15 --oneline --decorate";
+	sla = "log --oneline --decorate --graph --all";
+	lol = "log --graph --decorate --pretty=oneline --abbrev-commit";
+	lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
 [gpg]
 	program = /usr/local/bin/gpg
 [init]
-	templateDir = /Users/aaqa/.git-template
+	templateDir = $HOME/.git-template

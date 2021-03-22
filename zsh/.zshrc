@@ -32,7 +32,8 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 ###############################################################################
 # Git                                                                         #
 ###############################################################################
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+# Moved to git config
+# git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 
 if command -v grep &>/dev/null; then
