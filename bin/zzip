@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# zip without macos crap!
+zzip() {
+    local file
+    local dir
+    file="${1}"
+    dir="${2-.}"
+
+    command -v zip &>/dev/null \
+    && zip -r "${file}" "${dir}" -x ".*" -x "__MACOSX"
+}
+
+zzip "$@"
