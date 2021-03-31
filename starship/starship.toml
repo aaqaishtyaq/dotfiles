@@ -15,6 +15,7 @@ symbol="go"
 
 [directory]
 style="fg:#d442f5"
+# style="fg:#689d6a"
 truncation_length = 10
 format = "[$path]($style)[$lock_symbol]($lock_style) "
 
@@ -62,3 +63,6 @@ staged = "A$count"
 modified = "M$count"
 deleted = "D$count"
 show_sync_count = true
+
+[nodejs]
+disabled=true
