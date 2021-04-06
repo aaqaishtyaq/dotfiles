@@ -24,6 +24,9 @@ export PATH="$GEM_PATH/bin:$PATH"
 
 . $(brew --prefix asdf)/asdf.sh
 
+# Rust stuff
+source "$HOME/.cargo/env"
+
 # shellcheck disable=SC2206
 fpath=(${ASDF_DIR}/completions $fpath)
 

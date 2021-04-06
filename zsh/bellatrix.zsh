@@ -32,13 +32,13 @@ git_info() {
   # Git branch/tag, or name-rev if on detached head
   local GIT_LOCATION=${$(git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD)#(refs/heads/|tags/)}
 
-  local AHEAD=" %{$fg[magenta]%}⇡NUM%{$reset_color%}"
+  local AHEAD=" %{$fg_bold[magenta]%}⇡NUM%{$reset_color%}"
   local BEHIND=" %{$fg[cyan]%}⇣NUM%{$reset_color%}"
   local MERGING=" %{$fg[magenta]%}⚡︎%{$reset_color%}"
   local UNTRACKED=" %{$fg[yellow]%}!%{$reset_color%}"
   local MODIFIED=" %{$fg[blue]%}±%{$reset_color%}"
   local STAGED=" %{$fg[blue]%}●%{$reset_color%}"
-  local GIT_STATUS_COLOR="green"
+  local GIT_STATUS_COLOR="magenta"
 
   local -a DIVERGENCES
   local -a FLAGS
@@ -80,7 +80,7 @@ git_info() {
   fi
 
   local -a GIT_INFO
-  GIT_INFO+=( "%{$fg[$GIT_STATUS_COLOR]%}$GIT_LOCATION%{$reset_color%}" )
+  GIT_INFO+=( "%{$fg_bold[$GIT_STATUS_COLOR]%}$GIT_LOCATION%{$reset_color%}" )
   [[ ${#DIVERGENCES[@]} -ne 0 ]] && GIT_INFO+=( "${(j::)DIVERGENCES}" )
   [[ ${#FLAGS[@]} -ne 0 ]] && GIT_INFO+=( "${(j::)FLAGS}" )
   echo " ${(j: :)GIT_INFO}"
