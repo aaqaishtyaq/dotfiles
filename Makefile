@@ -5,23 +5,27 @@ CONFIG_PATH = $(HOME)/.config
 dotfiles:
 	@echo "Please Use individual modules";
 
-	@echo "symlinking alacritty config files"
+.PHONY: alacritty
+## alacritty: terminal emulator written in rust
+alacritty:
 	@ALACRITTY_PATH="$(HOME)/.config/alacritty"
 	@mkdir -p $(ALACRITTY_PATH)
-	@ln -fs "$(CURDIR)/alacritty/alacritty.yml" $(ALACRITTY_PATH)
+	@ln -fs "$(CURDIR)/config/alacritty/alacritty.yml" $(ALACRITTY_PATH)
 
-	@echo "symlinking dircolors"
+.PHONY: dircolors
+## dircolors: color setup for ls
+dircolors:
 	@mkdir -p "$(CONFIG_PATH)/dircolors"
-	@echo "$(CURDIR)"
-	@ln -sf "$(CURDIR)/dircolors/dircolors" "$(CONFIG_PATH)/dircolors/.dircolors"
+	@ln -sf "$(CURDIR)/config/dircolors/dircolors" "$(CONFIG_PATH)/dircolors/dircolors"
 
-.PHONY: help
-## help: print this help message
-help:
-	@echo "Usage: \n"
-	@sed -n 's/^##//p' $(MAKEFILE_LIST) | column -t -s ':' |  sed -e 's/^/ /'
+.PHONY: startship
+## startship: prompt written in rust
+startship:
+	@cd config/startship
+	@./setup
 
 .PHONY: zsh
+## zsh: the Z shell
 zsh:
 	@mkdir -p ${HOME}/.config/zsh.d/;
 	@ln -fs "$(CURDIR)/config/zsh.d/.zshrc" "${HOME}/.zshrc";
@@ -29,3 +33,9 @@ zsh:
 		f=$$(basename $$file); \
 		ln -fs $$file "${CONFIG_PATH}/zsh.d/$$f";\
 	done;
+
+.PHONY: help
+## help: print the help message
+help:
+	@echo "Usage: \n"
+	@sed -n 's/^##//p' $(MAKEFILE_LIST) | column -t -s ':' |  sed -e 's/^/ /'
