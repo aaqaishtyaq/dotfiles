@@ -1,5 +1,11 @@
 CONFIG_PATH = $(HOME)/.config
 
+.PHONY: help
+## help: print the help message
+help:
+	@echo "Usage:\n"
+	@sed -n 's/^##//p' $(MAKEFILE_LIST) | column -t -s ':' |  sed -e 's/^/ /'
+
 .PHONY: dotfiles
 ## dotfiles: setup symlinks for dotfiles
 dotfiles:
@@ -8,15 +14,36 @@ dotfiles:
 .PHONY: alacritty
 ## alacritty: terminal emulator written in rust
 alacritty:
-	@ALACRITTY_PATH="$(HOME)/.config/alacritty"
-	@mkdir -p $(ALACRITTY_PATH)
-	@ln -fs "$(CURDIR)/config/alacritty/alacritty.yml" $(ALACRITTY_PATH)
+	@mkdir -p $(CONFIG_PATH)/alacritty;
+	@ln -fs "$(CURDIR)/config/alacritty/alacritty.yml" $(CONFIG_PATH)/alacritty/alacritty.yml;
+
+.PHONY: asdf
+## asdf: setup asdf tools version
+asdf:
+	@ln -sf "$(CURDIR)/config/asdf/.tool-versions" "$(HOME)/.tool-versions"
 
 .PHONY: dircolors
 ## dircolors: color setup for ls
 dircolors:
 	@mkdir -p "$(CONFIG_PATH)/dircolors"
 	@ln -sf "$(CURDIR)/config/dircolors/dircolors" "$(CONFIG_PATH)/dircolors/dircolors"
+
+.PHONY: git
+## git: setup git template
+git:
+	@ln -sf "$(CURDIR)/config/git/.git-template" "$(HOME)/.git-template"
+
+.PHONY: hammerspoon
+## hammerspoon: control mac using lua
+hammerspoon:
+	@mkdir -p "$(CONFIG_PATH)/hammerspoon"
+	@ln -sf "$(CURDIR)/config/hammerspoon/init.lua" "$(CONFIG_PATH)/hammerspoon/init.lua"
+
+.PHONY: nvim
+## nvim: control mac using lua
+nvim:
+	@mkdir -p "$(CONFIG_PATH)/nvim"
+	@ln -sf "$(CURDIR)/config/nvim/init.vim" "$(CONFIG_PATH)/nvim/init.vim"
 
 .PHONY: startship
 ## startship: prompt written in rust
@@ -33,9 +60,3 @@ zsh:
 		f=$$(basename $$file); \
 		ln -fs $$file "${CONFIG_PATH}/zsh.d/$$f";\
 	done;
-
-.PHONY: help
-## help: print the help message
-help:
-	@echo "Usage: \n"
-	@sed -n 's/^##//p' $(MAKEFILE_LIST) | column -t -s ':' |  sed -e 's/^/ /'

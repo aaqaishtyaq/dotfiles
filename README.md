@@ -5,7 +5,7 @@
 
 > "less is more"
 
-![My setup](src/alacritty_setup.png)
+![My setup](docs/assets/alacritty_setup.png)
 
 ```text
 editor      : nvim
