@@ -10,7 +10,7 @@ if [[ $(uname -a) =~ Darwin ]]; then
 fi
 
 # source shell config
-for file in ~/.config/zsh/*.zsh; do
+for file in ~/.config/zsh.d/*.zsh; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
 	fi
