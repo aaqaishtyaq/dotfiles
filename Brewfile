@@ -37,6 +37,7 @@ cask 'slack'
 cask 'transmission'
 cask 'vlc'
 cask 'visual-studio-code'
+cask 'hammerspoon'
 
 # Fonts
 cask 'font-blexmono-nerd-font'
