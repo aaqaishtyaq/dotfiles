@@ -9,11 +9,19 @@ if [ "$MACOS" ]; then
    alias date='gdate'
 fi
 
-command -v vim &>/dev/null && alias vim='nvim'
+if [ -n "$MACOS" ]; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color=auto'
+fi
 
-alias ls="ls -G -h"
-alias le="exa -l"
-alias tree-"exa -T"
+command -v nvim &>/dev/null && alias vim='nvim'
+
+# List directory contents
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
 alias sl="ls -al"
 alias brewclean="brew update && brew upgrade && brew cleanup; brew doctor"
 alias glog="git log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -32,3 +40,7 @@ alias ipinfo="curl ipinfo.io"
 alias weather="curl wttr.in"
 alias more='less -R'
 alias cl="clear"
+alias grep='grep --color=auto'
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias k='kubectl'
+alias tm="byobu-tmux"
