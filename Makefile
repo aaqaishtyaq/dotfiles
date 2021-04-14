@@ -45,11 +45,10 @@ nvim:
 	@mkdir -p "$(CONFIG_PATH)/nvim"
 	@ln -sf "$(CURDIR)/config/nvim/init.vim" "$(CONFIG_PATH)/nvim/init.vim"
 
-.PHONY: startship
-## startship: prompt written in rust
-startship:
-	@cd config/startship
-	@./setup
+.PHONY: starship
+## starship: prompt written in rust
+starship:
+	@bash config/starship/setup
 
 .PHONY: zsh
 ## zsh: the Z shell
