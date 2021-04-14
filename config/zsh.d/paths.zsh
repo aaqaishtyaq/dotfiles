@@ -26,10 +26,12 @@ export PATH="$GEM_PATH/bin:$PATH"
 export GOPATH="${HOME}/.local/go"
 export PATH=$PATH:$GOPATH/bin
 
-. $(brew --prefix asdf)/asdf.sh
+if [ $MACOS ];then
+  . $(brew --prefix asdf)/asdf.sh
+fi
 
 # Rust stuff
-source "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then source "$HOME/.cargo/env"; fi
 
 # shellcheck disable=SC2206
 fpath=(${ASDF_DIR}/completions $fpath)
