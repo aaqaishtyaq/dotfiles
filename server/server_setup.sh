@@ -17,9 +17,9 @@ basic_utilities() {
 
 setup_shell() {
   mkdir -p "$HOME"/.config/zsh.d/
-	git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME"/.config/zsh.d/zsh-autosuggestions
-	git clone https://github.com/rupa/z.git "$HOME"/.config/zsh.d/z
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME"/.config/zsh.d/powerlevel10k
+	git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME"/.config/zsh.d/lib/plugins/zsh-autosuggestions
+	git clone https://github.com/rupa/z.git "$HOME"/.config/zsh.d/lib/plugins/z
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME"/.config/zsh.d/lib/plugins/powerlevel10k
 }
 
 link_config() {

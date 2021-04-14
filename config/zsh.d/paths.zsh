@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
-
-###############################################################################
-# Paths                                                                       #
-###############################################################################
-
-# shellcheck disable=SC2202 disable=SC2154
-function kube() {
-  if [ "$commands"[kubectl] ]; then
-      source <(kubectl completion zsh)
-  fi
-}
+#-------------------------#
+# Paths
+#-------------------------#
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -22,11 +14,7 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export GEM_PATH="$HOME/.asdf/shims/"
 export PATH="$GEM_PATH/bin:$PATH"
 
-# Golang
-export GOPATH="${HOME}/.local/go"
-export PATH=$PATH:$GOPATH/bin
-
-if [ $MACOS ];then
+if [[ "${MACOS}" ]];then
   . $(brew --prefix asdf)/asdf.sh
 fi
 

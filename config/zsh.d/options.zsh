@@ -1,6 +1,7 @@
-##############################################################
+#!/usr/bin/env zsh
+#-------------------------#
 # Options
-###############################################################
+#-------------------------#
 
 setopt AUTO_RESUME          # Treat single word simple commands without redirection as candidates for resumption of an existing job.
 setopt INTERACTIVE_COMMENTS # Allow comments starting with `#` even in interactive shells.
