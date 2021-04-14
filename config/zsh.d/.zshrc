@@ -1,43 +1,31 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # .zshrc - z shell configuration
 # =========================================================
 # - https://github.com/aaqaishtyaw/dotfiles
 # - https://aaqa.dev
 
+[[ $- != *i* ]] && return
+
 if [[ $(uname -a) =~ Darwin ]]; then
-    MACOS=true
+  MACOS=true
 fi
 
-# source shell config
-for file in ~/.config/zsh.d/*.zsh; do
-	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
-		source "$file"
-	fi
-done
+ZSH="${HOME}/.config/zsh.d"
+
+if [ -d "${ZSH}" ]; then
+  mkdir -p "${ZSH}"
+fi
 
 # Export History variables
-HISTFILE=~/.config/zsh.d/.zsh_history
+HISTFILE=~/.zsh_history
 HISTSIZE=50000
 SAVEHIST=100000
-
-#-------------------------#
-# Completion
-#-------------------------#
-zstyle ':completion:*' completer _expand _complete _ignored
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}'
-zstyle ':completion:*' menu select
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle :compinstall filename "$HOME/.zshrc"
-bindkey '^[n' expand-or-complete
-bindkey '^[p' reverse-menu-complete
-bindkey '^[[Z' reverse-menu-complete
-
-fpath+=~/.zfunc
+export ZSH_CACHE_DIR"=${ZSH}/lib/cache"
+export ZSH_PLUGIN_DIR="${ZSH}/lib/plugins"
+# fpath=("${ZSH}/lib/cache" "${fpath}")
 
 autoload -Uz compinit
-
 # Instead of having compinit happen on every prompt, use the cached version in
 # the prompt and have it re-load every 5 minutes via Cron
 # * * * * * zsh -i -c 'compinit'
@@ -49,17 +37,22 @@ else
 	compinit -C;
 fi;
 
-# emacs style keybindings
-bindkey -e
+# source shell config
+for file in "${ZSH}"/*.zsh; do
+	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+		source "$file"
+	fi
+done
 
 #-------------------------#
 # Prompt
 #-------------------------#
-if [ -x "$(command -v starship)" ] && [ -f $HOME/.config/starship.toml ]; then
-    eval "$(starship init zsh)"
-elif [ -f "$HOME/.config/zsh.d/powerlevel10k/powerlevel10k.zsh-theme" ]; then
-    source "$HOME/.config/zsh.d/powerlevel10k/powerlevel10k.zsh-theme"
-    ZSH_THEME="powerlevel10k/powerlevel10k"
+if [ -x "$(command -v starship)" ] && [ -f "${HOME}/.config/starship.toml" ]; then
+  eval "$(starship init zsh)"
+elif [ -f "${ZSH_PLUGIN_DIR}/powerlevel10k/powerlevel10k.zsh-theme" ] && [ -z "${NEW_PROMPT}" ]; then
+  source "${ZSH_PLUGIN_DIR}/powerlevel10k/powerlevel10k.zsh-theme"
+  light_saber
+  ZSH_THEME="powerlevel10k/powerlevel10k"
 else
     activate_bellatrix
 fi
@@ -73,14 +66,15 @@ if command -v grep &>/dev/null; then
 fi
 
 # syntax highlighting
-[ -f ~/.config/zsh.d/zsh-autosuggestions/zsh-autosuggestions.zsh ] \
-    && source ~/.config/zsh.d/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f "${ZSH_PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && \
+  source "${ZSH_PLUGIN_DIR}/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Async autosuggest
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # autojump using z
-[ -f ~/.config/zsh.d/z/z.sh ] && source ~/.config/zsh.d/z/z.sh
+[ -f "${ZSH_PLUGIN_DIR}/z/z.sh" ] && source "${ZSH_PLUGIN_DIR}/z/z.sh"
 
+unset ZSH
 # fsf (figure out  why it's not working before sourcing zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
