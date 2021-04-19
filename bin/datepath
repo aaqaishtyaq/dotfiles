@@ -4,8 +4,23 @@
 # a directory file structure that models chronological data. Accepts
 # anything that can be passed to `date -d`.
 
-if [[ $(uname -a) =~ Darwin ]]; then
-    gdate +%4Y/%m/%d "-d" "$@"
-else
-    date +%4Y/%m/%d "-d" "$@"
-fi
+datepath() {
+    local date
+    local params
+
+    # Use coreutils date on mac
+    if [[ $(uname -a) =~ Darwin ]]; then
+        date="gdate"
+    else
+        date="date"
+    fi
+
+    # Ex: yesterday, 2 days ago
+    if [ -n "$1" ]; then
+        "${date}" +%4Y/%m/%d -d "$*"
+    else
+        "${date}" +%4Y/%m/%d
+    fi
+}
+
+datepath "$@"

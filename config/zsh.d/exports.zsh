@@ -20,3 +20,4 @@ export COMPOSE_DOCKER_CLI_BUILD=0
 export EDITOR=nvim
 GPG_TTY=$(tty)
 export GPG_TTY
+export PATH=~/.local/bin/scripts:$PATH
