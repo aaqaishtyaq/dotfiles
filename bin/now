@@ -1,0 +1,20 @@
+#!/bin/bash
+
+now() {
+  local date
+
+  # Use coreutils date on mac
+  if [[ $(uname -a) =~ Darwin ]]; then
+    date="gdate"
+  else
+    date="date"
+  fi
+
+  if [ -z "$1" ]; then
+    ${date} "+%A, %B %e, %Y, %l:%M:%S%p %Z <%s>"
+  else
+    ${date} "+%A, %B %e, %Y, %l:%M:%S%p %Z <%s>" -d "$*"
+  fi
+}
+
+now "$@"

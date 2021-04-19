@@ -9,7 +9,6 @@ file="$dir/README.md"
 mkdir -p "${dir}"
 
 # prepend a timestamped heading
-
 tmpfile=$(mktemp)
 hnow "$*" > "${tmpfile}"
 printf "\n\n\n">> "${tmpfile}"
@@ -21,7 +20,12 @@ mv "${tmpfile}" "${file}"
 echo "${file}"
 nvim +3 "${file}"
 
+read -rp 'Do you want to commit? ' commit
+
+if [[ ! $commit =~ ^[Yy] ]]; then
+  exit
+fi
+
 cd "${dir}" || exit 1
 git add "${file}"
 git commit
-git push
