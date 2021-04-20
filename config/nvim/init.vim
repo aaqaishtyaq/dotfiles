@@ -41,16 +41,19 @@ set undodir=/tmp
 set clipboard=unnamedplus
 
 " size of a hard tabstop
-set tabstop=2
+" set tabstop=2
+set ts=2
+set sts=2
 " always uses spaces instead of tab characters
 set expandtab
 " size of an "indent"
-set shiftwidth=2
+" set shiftwidth=2
 
 autocmd Filetype javascript setlocal sw=2 sts=2 expandtab
 autocmd Filetype python setlocal sw=4 sts=4 expandtab
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType rust setlocal expandtab shiftwidth=2 tabstop=2
 
 " max text length
 au BufRead,BufNewFile *.rb setlocal textwidth=120
@@ -92,6 +95,8 @@ Plug 'AlessandroYorba/Sierra'
 Plug 'jaredgorski/SpaceCamp'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'LnL7/vim-nix'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " colorscheme spacecamp
@@ -225,3 +230,15 @@ let g:ruby_indent_access_modifier_style = 'normal'
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_block_style = 'do'
 set shell=/bin/zsh
+
+" Language specific configs
+
+" Rust
+" Rust
+let g:racer_cmd = '~/.cargo/bin/racer'
+let g:racer_experimental_completer = 1
+let g:rustfmt_autosave = 1
+augroup rust
+    autocmd FileType rust setlocal textwidth=80
+    autocmd FileType rust map <buffer> <leader>rt :RustTest<CR>
+augroup END

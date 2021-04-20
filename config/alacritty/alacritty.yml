@@ -71,10 +71,10 @@ schemes:
   darx: &darx
     primary:
       background: '#1d2021'
-      foreground: '#a89984'
+      foreground: '#bdae93'
     cursor:
-      text: '#ffffff'
-      cursor: '#3e588c'
+      text: CellBackground
+      cursor: CellForeground
     normal:
       black:   '#282828'
       red:     '#cc241d'
@@ -94,7 +94,7 @@ schemes:
       cyan:    '#7ec16e'
       white:   '#ebdbb2'
 
-colors: *dang
+colors: *darx
 
 bell:
   animation: EaseOutExpo

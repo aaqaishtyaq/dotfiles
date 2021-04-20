@@ -120,3 +120,13 @@ cdp() {
     done
     OLDPWD=$TEMP_PWD
 }
+
+# cd to dotfiles directory
+.() {
+    cd "${DOTS_DIR}"
+}
+
+# cd to github.com/aaqaishtyaq dir
+cdaa() {
+    cd "${DEV_DIR}"
+}
