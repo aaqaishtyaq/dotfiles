@@ -22,6 +22,10 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export GEM_PATH="$HOME/.asdf/shims/"
 export PATH="$GEM_PATH/bin:$PATH"
 
+# Golang
+export GOPATH="${HOME}/.local/go"
+export PATH=$PATH:$GOPATH/bin
+
 . $(brew --prefix asdf)/asdf.sh
 
 # Rust stuff
