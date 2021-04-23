@@ -50,6 +50,11 @@ nvim:
 starship:
 	@bash config/starship/setup
 
+.PHONY: tmux
+## tmux: vanilla tmux config
+tmux:
+	@ln -fs "$(CURDIR)/config/tmux/next/tmux.conf" "${HOME}/.tmux.conf"
+
 .PHONY: zsh
 ## zsh: the Z shell
 zsh:
