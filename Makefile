@@ -53,7 +53,7 @@ starship:
 .PHONY: zsh
 ## zsh: the Z shell
 zsh:
-	@mkdir -p ${HOME}/.config/zsh.d/;
+	@mkdir -p ${HOME}/.config/zsh.d/lib/cache;
 	@ln -fs "$(CURDIR)/config/zsh.d/.zshrc" "${HOME}/.zshrc";
 	@for file in $(shell find $(CURDIR)/config/zsh.d -type f -name "*.zsh"); do \
 		f=$$(basename $$file); \

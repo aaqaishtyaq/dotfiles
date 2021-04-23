@@ -8,12 +8,8 @@ if [[ "${MACOS}" ]]; then
    alias date='gdate'
 fi
 
-if [[ -n "${MACOS}" ]] && \
-    command -v gls &>/dev/null; then
-    alias ls='gls --color=auto'
-else
-    alias ls='ls --color=auto'
-fi
+ls --color=auto &> /dev/null && \
+   alias ls='ls --color=auto' || alias ls='gls --color=auto'
 
 command -v nvim &>/dev/null && alias vim='nvim'
 
@@ -40,6 +36,8 @@ alias gpu='git push upstream'
 alias gr='git remote'
 alias gra='git remote add'
 alias grv='git remote -v'
+alias grehh='git reset --hard HEAD'
+alias grehfh='git reset --hard FETCH_HEAD'
 alias gs="git status"
 alias gsh='git show'
 alias gsi='git submodule init'
@@ -56,6 +54,9 @@ alias la='ls -lAh'
 alias ll='ls -lh'
 alias lsa='ls -lah'
 alias sl="ls -al"
+
+# tree: force color output after piping
+alias tree="tree -C"
 
 # Utility
 alias chmox="chmod u+x"
