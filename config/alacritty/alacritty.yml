@@ -94,7 +94,7 @@ schemes:
       cyan:    '#7ec16e'
       white:   '#ebdbb2'
 
-colors: *darx
+colors: *dang
 
 bell:
   animation: EaseOutExpo
