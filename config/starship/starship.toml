@@ -1,22 +1,21 @@
 # Starship config
 
 [username]
-style_user = "fg:#f42c3e bold"
+style_user = "bold fg:#d442f5"
 style_root = "black bold"
 
 [character]
-symbol="ᛥ"
-success_symbol = "[ᛥ](bold green)"
-error_symbol="[ᛥ](bright-red)"
+success_symbol = "[ᛗ](bold green)"
+error_symbol="[ᛗ](bright-red)"
 
 [golang]
 style="fg:#00ADD8"
 symbol="go"
 
 [directory]
-style="fg:#d442f5"
-# style="fg:#689d6a"
+style = "fg:#f42c3e bold"
 truncation_length = 10
+truncate_to_repo = false
 format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [hostname]
@@ -62,7 +61,3 @@ untracked = "U$count"
 staged = "A$count"
 modified = "M$count"
 deleted = "D$count"
-show_sync_count = true
-
-[nodejs]
-disabled=true
