@@ -121,6 +121,11 @@ cdp() {
     OLDPWD=$TEMP_PWD
 }
 
+# cd to dotfiles directory
+dots() {
+    cd "${DOTS_DIR}" || return
+}
+
 # cd to github.com/aaqaishtyaq dir
 cdaa() {
     cd "${DEV_DIR}" || return

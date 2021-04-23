@@ -42,18 +42,23 @@ set clipboard=unnamedplus
 
 " size of a hard tabstop
 " set tabstop=2
-set ts=2
-set sts=2
+" set ts=2
+" set sts=2
 " always uses spaces instead of tab characters
-set expandtab
+" set expandtab
 " size of an "indent"
 " set shiftwidth=2
+
+set shiftwidth=2
+set tabstop=2
+set expandtab
 
 autocmd Filetype javascript setlocal sw=2 sts=2 expandtab
 autocmd Filetype python setlocal sw=4 sts=4 expandtab
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType rust setlocal expandtab shiftwidth=2 tabstop=2
+autocmd Filetype go setlocal ts=4
 
 " max text length
 au BufRead,BufNewFile *.rb setlocal textwidth=120
@@ -242,3 +247,16 @@ augroup rust
     autocmd FileType rust setlocal textwidth=80
     autocmd FileType rust map <buffer> <leader>rt :RustTest<CR>
 augroup END
+
+" Line movement
+" Normal mode
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+
+" Insert mode
+inoremap <C-j> <ESC>:m .+1<CR>==gi
+inoremap <C-k> <ESC>:m .-2<CR>==gi
+
+" Visual mode
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
