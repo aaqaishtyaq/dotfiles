@@ -26,3 +26,6 @@ setup_shell() {
 }
 
 setup_shell
+install_zsh
+set_zsh_default
+
