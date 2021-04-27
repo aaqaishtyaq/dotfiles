@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Change alacritty theme from the terminal without vim :P
+alatheme() {
+  local new_scheme="${1}"
+  local config="${HOME}/.config/alacritty/alacritty.yml"
+  local current_scheme
+
+  # If config is a symlink then set the source config
+  [[ -L "${config}" ]] &&
+    config=$(readlink "${config}")
+
+  [[ ! -f "${config}" ]] &&
+    echo "Err! Alacritty config ${config} does not exist" &&
+    exit 1
+
+  [[ ! "${new_scheme}" ]] &&
+    echo "Err! Please provide a theme" &&
+    exit 1
+
+  # grep the "colors: *{colorscheme}" line
+  # split and select "*{colorscheme}"
+  current_scheme=$(grep -E "colors:\s\*" "${config}" | xargs -n 1 | tail -1)
+
+  # Replcae the current colorscheme with new colorscheme
+  # TODO: Maybe verify if the theme is listed in alacritty.yml
+  sed -i '' "s/${current_scheme}/*${new_scheme}/g" "${config}"
+}
+
+alatheme "$@"
