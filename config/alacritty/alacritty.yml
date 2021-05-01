@@ -11,8 +11,8 @@ window:
     x: 10
     y: 10
   dynamic_padding: false
-  decorations: buttonless
-  startup_mode: Fullscreen
+  decorations: full 
+  # startup_mode: Fullscreen
   dynamic_title: true
 
 scrolling:
@@ -120,7 +120,7 @@ schemes:
       cyan:    '#427b58'
       white:   '#3c3836'
 
-colors: *gruvbox_light
+colors: *darx
 
 bell:
   animation: EaseOutExpo

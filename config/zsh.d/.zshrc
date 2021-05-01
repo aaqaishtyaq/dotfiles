@@ -23,6 +23,7 @@ HISTSIZE=50000
 SAVEHIST=100000
 export ZSH_CACHE_DIR"=${ZSH}/lib/cache"
 export ZSH_PLUGIN_DIR="${ZSH}/lib/plugins"
+autoload -U add-zsh-hook
 
 autoload -Uz compinit
 # Instead of having compinit happen on every prompt, use the cached version in
@@ -52,8 +53,6 @@ elif [ -f "${ZSH_PLUGIN_DIR}/powerlevel10k/powerlevel10k.zsh-theme" ] && [ -z "$
   source "${ZSH_PLUGIN_DIR}/powerlevel10k/powerlevel10k.zsh-theme"
   light_saber
   ZSH_THEME="powerlevel10k/powerlevel10k"
-else
-    activate_bellatrix
 fi
 
 if command -v grep &>/dev/null; then
