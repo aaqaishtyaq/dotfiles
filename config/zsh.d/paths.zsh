@@ -9,6 +9,8 @@ export NVM_DIR="$HOME/.nvm"
 # Export path for openssl
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
+export PATH=~/.local/bin/scripts:$PATH
+
 # # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
 export GEM_PATH="$HOME/.asdf/shims/"
