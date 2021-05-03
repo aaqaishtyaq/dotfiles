@@ -37,7 +37,7 @@ git_info() {
   local UNTRACKED=" %{$fg[yellow]%}!%{$reset_color%}"
   local MODIFIED=" %{$fg[blue]%}±%{$reset_color%}"
   local STAGED=" %{$fg[blue]%}●%{$reset_color%}"
-  local GIT_STATUS_COLOR="magenta"
+  local GIT_STATUS_COLOR="green"
 
   local -a DIVERGENCES
   local -a FLAGS
@@ -98,7 +98,7 @@ gen-bellatrix() {
 
   local dir="${seg_1}%B%F{${host_color}}$(print-pwd)%f%b"
 
-  echo "${dir}$(git_info)%B%F{blue} %#%b%f "
+  echo "${dir}$(git_info) %B%F{blue}%#%b%f "
 }
 
 activate_bellatrix() {
