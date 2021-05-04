@@ -19,7 +19,7 @@ fi
 
 # Export History variables
 HISTFILE=~/.zsh_history
-HISTSIZE=50000
+HISTSIZE=100000
 SAVEHIST=100000
 export ZSH_CACHE_DIR"=${ZSH}/lib/cache"
 export ZSH_PLUGIN_DIR="${ZSH}/lib/plugins"
@@ -53,7 +53,7 @@ elif [ -f "${ZSH_PLUGIN_DIR}/powerlevel10k/powerlevel10k.zsh-theme" ] && [ -z "$
   light_saber
   ZSH_THEME="powerlevel10k/powerlevel10k"
 else
-    activate_bellatrix
+  activate_bellatrix
 fi
 
 if command -v grep &>/dev/null; then

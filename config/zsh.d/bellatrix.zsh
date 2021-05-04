@@ -31,12 +31,12 @@ git_info() {
   # Git branch/tag, or name-rev if on detached head
   local GIT_LOCATION=${$(git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD)#(refs/heads/|tags/)}
 
-  local AHEAD=" %{$fg[magenta]%}⇡NUM%{$reset_color%}"
-  local BEHIND=" %{$fg[cyan]%}⇣NUM%{$reset_color%}"
-  local MERGING=" %{$fg[magenta]%}⚡︎%{$reset_color%}"
-  local UNTRACKED=" %{$fg[yellow]%}!%{$reset_color%}"
-  local MODIFIED=" %{$fg[blue]%}±%{$reset_color%}"
-  local STAGED=" %{$fg[blue]%}●%{$reset_color%}"
+  local AHEAD=" %{$fg_bold[magenta]%}⇡NUM%{$reset_color%}"
+  local BEHIND=" %{$fg_bold[cyan]%}⇣NUM%{$reset_color%}"
+  local MERGING="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
+  local UNTRACKED="%{$fg_bold[yellow]%}!%{$reset_color%}"
+  local MODIFIED="%{$fg_bold[blue]%}±%{$reset_color%}"
+  local STAGED="%{$fg_bold[blue]%}●%{$reset_color%}"
   local GIT_STATUS_COLOR="green"
 
   local -a DIVERGENCES
@@ -74,15 +74,21 @@ git_info() {
   fi
 
   if $(git rev-parse --verify refs/stash &>/dev/null); then
-    local STASHED=" %{$fg[$GIT_STATUS_COLOR]%}☗%{$reset_color%}"
+    local STASHED="%{$fg_bold[$GIT_STATUS_COLOR]%}$%{$reset_color%}"
     FLAGS+=( "$STASHED" )
   fi
+
+  local FLAGSHIP_S=" %{$fg_bold[$GIT_STATUS_COLOR]%}[%{$reset_color%}"
+  local FLAGSHIP_E="%{$fg_bold[$GIT_STATUS_COLOR]%}]%{$reset_color%}"
 
   local -a GIT_INFO
   GIT_INFO+=( "%{$fg_bold[$GIT_STATUS_COLOR]%}$GIT_LOCATION%{$reset_color%}" )
   [[ ${#DIVERGENCES[@]} -ne 0 ]] && GIT_INFO+=( "${(j::)DIVERGENCES}" )
-  [[ ${#FLAGS[@]} -ne 0 ]] && GIT_INFO+=( "${(j::)FLAGS}" )
-  echo " ${(j: :)GIT_INFO}"
+  [[ ${#FLAGS[@]} -ne 0 ]] && \
+    GIT_INFO+=( "$FLAGSHIP_S" ) && \
+    GIT_INFO+=( "${(j::)FLAGS}" ) && \
+    GIT_INFO+=( "$FLAGSHIP_E" )
+  echo " ${(j::)GIT_INFO}"
 
 }
 
