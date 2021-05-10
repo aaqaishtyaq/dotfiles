@@ -3,7 +3,7 @@
 # Opens the default quotes file with vim. Prompts to commit.
 
 rel="$1"
-dir="${KN}/notes/${rel}"
+dir="${KNPATH}/notes/${rel}"
 file="${dir}/README.md"
 mkdir -p "${dir}"
 vim "${file}"

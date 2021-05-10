@@ -163,7 +163,7 @@ schemes:
       cyan:    '#427b58'
       white:   '#3c3836'
 
-colors: *gruvbox_dark
+colors: *gruvbox_light
 
 bell:
   animation: EaseOutExpo

@@ -35,8 +35,8 @@ git_info() {
   local BEHIND=" %{$fg_bold[cyan]%}⇣NUM%{$reset_color%}"
   local MERGING="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
   local UNTRACKED="%{$fg_bold[yellow]%}!%{$reset_color%}"
-  local MODIFIED="%{$fg_bold[blue]%}±%{$reset_color%}"
-  local STAGED="%{$fg_bold[blue]%}●%{$reset_color%}"
+  local MODIFIED="%{$fg_bold[red]%}±%{$reset_color%}"
+  local STAGED="%{$fg_bold[green]%}±%{$reset_color%}"
   local GIT_STATUS_COLOR="green"
 
   local -a DIVERGENCES
