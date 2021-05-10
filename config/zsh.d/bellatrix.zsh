@@ -93,7 +93,7 @@ git_info() {
 }
 
 gen-bellatrix() {
-  local host_color='red'
+  local host_color='009'
 
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     host_color="blue"
@@ -104,7 +104,7 @@ gen-bellatrix() {
 
   local dir="${seg_1}%B%F{${host_color}}$(print-pwd)%f%b"
 
-  echo "${dir}$(git_info) %B%F{blue}%#%b%f "
+  echo "${dir}$(git_info) %B%F{blue}%#%f%b "
 }
 
 activate_bellatrix() {
