@@ -35,8 +35,8 @@ git_info() {
   local BEHIND=" %{$fg_bold[cyan]%}⇣NUM%{$reset_color%}"
   local MERGING="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
   local UNTRACKED="%{$fg_bold[yellow]%}!%{$reset_color%}"
-  local MODIFIED="%{$fg_bold[blue]%}±%{$reset_color%}"
-  local STAGED="%{$fg_bold[blue]%}●%{$reset_color%}"
+  local MODIFIED="%{$fg_bold[red]%}±%{$reset_color%}"
+  local STAGED="%{$fg_bold[green]%}±%{$reset_color%}"
   local GIT_STATUS_COLOR="green"
 
   local -a DIVERGENCES
@@ -93,7 +93,7 @@ git_info() {
 }
 
 gen-bellatrix() {
-  local host_color='red'
+  local host_color='009'
 
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     host_color="blue"
@@ -104,7 +104,7 @@ gen-bellatrix() {
 
   local dir="${seg_1}%B%F{${host_color}}$(print-pwd)%f%b"
 
-  echo "${dir}$(git_info) %B%F{blue}%#%b%f "
+  echo "${dir}$(git_info) %B%F{blue}%#%f%b "
 }
 
 activate_bellatrix() {

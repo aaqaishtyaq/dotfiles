@@ -57,8 +57,8 @@ autocmd Filetype javascript setlocal sw=2 sts=2 expandtab
 autocmd Filetype python setlocal sw=4 sts=4 expandtab
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
-autocmd FileType rust setlocal expandtab shiftwidth=2 tabstop=2
-autocmd Filetype go setlocal ts=4
+autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=4
+autocmd Filetype go setlocal ts=4 sw=4
 
 " max text length
 au BufRead,BufNewFile *.rb setlocal textwidth=120
