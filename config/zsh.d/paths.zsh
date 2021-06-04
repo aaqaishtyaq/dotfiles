@@ -20,7 +20,6 @@ export GOPATH="${HOME}/.local/go"
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH:$GOBIN
 
-
 if [[ "${MACOS}" ]];then
   . $(brew --prefix asdf)/asdf.sh
 fi

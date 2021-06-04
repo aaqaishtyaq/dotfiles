@@ -112,7 +112,7 @@ fh() {
 }
 
 # move to the top-level parent directory
-cdp() {
+cdgr() {
     TEMP_PWD="$(pwd)"
     while ! [ -d .git ]; do
         cd ..

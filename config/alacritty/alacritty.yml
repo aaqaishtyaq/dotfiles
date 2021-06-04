@@ -38,7 +38,7 @@ font:
     y: 0
   use_thin_strokes: true
 
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 schemes:
   dang: &dang
@@ -163,7 +163,7 @@ schemes:
       cyan:    '#427b58'
       white:   '#3c3836'
 
-colors: *gruvbox_light
+colors: *dang
 
 bell:
   animation: EaseOutExpo
