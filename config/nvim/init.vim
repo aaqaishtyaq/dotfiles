@@ -156,8 +156,8 @@ map <Leader>ms :InstantMarkdownStop<CR
 nmap <leader>2 :set paste<CR>i
 
 " remap envoke key
-nnoremap <silent> <C-z> :FZF<CR>
-nnoremap <silent> <C-x> :Buffers<CR>
+nnoremap <silent> <Leader>z :FZF<CR>
+nnoremap <silent> <Leader>x :Buffers<CR>
 
 " remap splits
 nmap :vs :vsplit
