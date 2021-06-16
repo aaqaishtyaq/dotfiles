@@ -1,0 +1,6 @@
+#!/bin/sh
+
+MUX_SESSION_NAME = "HOME'
+tmux new -s "${MUX_SESSION_NAME}"
+
+unset MUX_SESSION_NAME
