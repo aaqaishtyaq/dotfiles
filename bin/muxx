@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cd "${HOME}" || exit
+MUX_SESSION_NAME="HOME"
+tmux new -s "${MUX_SESSION_NAME}" -n "ZSH" -d
+for i in {2..4}; do
+  tmux new-window -t "${MUX_SESSION_NAME}:${i}" -n "ZSH" -d
+done
+
+tmux select-window -t "${MUX_SESSION_NAME}"
+tmux -2 attach-session -t "${MUX_SESSION_NAME}"
+
