@@ -204,7 +204,7 @@ schemes:
       - { index: 20, color: '#b8b8b8' }
       - { index: 21, color: '#e8e8e8' }
 
-colors: *gruvbox_dark
+colors: *gruvbox_community
 
 bell:
   animation: EaseOutExpo
@@ -386,7 +386,7 @@ key_bindings:
   - { key: C,        mods: Command,       action: Copy                         }
   - { key: Q,        mods: Command,       action: Quit                         }
   - { key: N,        mods: Command,       action: SpawnNewInstance             }
-  - { key: Return,   mods: Command,       action: ToggleFullscreen             }
+  - { key: Return,   mods: Command|Shift, action: ToggleFullscreen             }
   - { key: K,        mods: Command,       chars: "\x0c"                        }
   - { key: Home,                          chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                          chars: "\x1b[H",   mode: ~AppCursor  }
