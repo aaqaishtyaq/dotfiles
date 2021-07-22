@@ -40,6 +40,9 @@ set undofile
 set undodir=/tmp
 set clipboard=unnamedplus
 
+" Set a ruler at 72th char
+set colorcolumn=72
+
 " size of a hard tabstop
 " set tabstop=2
 " set ts=2
