@@ -92,8 +92,24 @@ git_info() {
 
 }
 
+hostname_color() {
+  local home_dir
+  local curr_dir
+  local host_color
+  home_dir="$HOME"
+  curr_dir=$(pwd)
+  if [[ "${curr_dir}" == *"${home_dir}"* ]]; then
+    host_color='009'
+  else
+    host_color='cyan'
+  fi
+
+  echo "${host_color}"
+}
+
 gen-bellatrix() {
-  local host_color='009'
+  local host_color
+  host_color=$(hostname_color)
 
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     host_color="blue"
