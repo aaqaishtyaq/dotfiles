@@ -17,8 +17,8 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Rollback BuildKit Docker
-export DOCKER_BUILDKIT=0
-export COMPOSE_DOCKER_CLI_BUILD=0
+# export DOCKER_BUILDKIT=0
+# export COMPOSE_DOCKER_CLI_BUILD=0
 
 GPG_TTY=$(tty)
 export GPG_TTY

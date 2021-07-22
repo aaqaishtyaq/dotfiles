@@ -17,8 +17,11 @@ export                        PATH="$HOME/.local/bin/scripts:$PATH"
 
 export GOPATH="${HOME}/Developer/go"
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH:$GOBIN
 
+export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOBIN
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:~/.local/bin
 if [[ "${MACOS}" ]];then
   . $(brew --prefix asdf)/asdf.sh
 fi
