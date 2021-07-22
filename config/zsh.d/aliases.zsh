@@ -3,11 +3,6 @@
 # Alias
 #-------------------------#
 
-if [[ "${MACOS}" ]]; then
-   alias dircolors='gdircolors'
-   alias date='gdate'
-fi
-
 ls --color=auto &> /dev/null && \
    alias ls='ls --color=auto' || alias ls='gls --color=auto'
 
@@ -73,3 +68,9 @@ alias weather="curl wttr.in"
 alias dev='cd $HOME/Developer'
 alias hr="cd ~/Developer/hackerrank/"
 alias tm="byobu-tmux"
+
+if [[ "${MACOS}" ]]; then
+   alias dircolors='gdircolors'
+   alias date='gdate'
+   alias ls='gls --color=auto'
+fi

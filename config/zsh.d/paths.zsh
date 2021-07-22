@@ -16,7 +16,7 @@ export PATH=~/.local/bin/scripts:$PATH
 export GEM_PATH="$HOME/.asdf/shims/"
 export PATH="$GEM_PATH/bin:$PATH"
 
-export GOPATH="${HOME}/.local/go"
+export GOPATH="${HOME}/Developer/go"
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH:$GOBIN
 
