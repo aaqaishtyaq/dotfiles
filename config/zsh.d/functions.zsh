@@ -6,12 +6,8 @@
 # Start local_ops
 ops() {
     local task="${1:-start}"
-    if [[ $task == 'start' ]]; then
-        local_ops okta login
-    else
-        echo -e "\n\033[33mSkipping OKTA Login\033[0m\n"
-    fi
-    local_ops "$task" -s hrw-slim --tmux
+    local service="${2:-hrw-slim}"
+    local_ops "$task" -s "$service" --tmux
 }
 
 _rspec() {

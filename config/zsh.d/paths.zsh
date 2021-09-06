@@ -6,15 +6,14 @@
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Export path for openssl
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+GNU_SED_PATH="/usr/local/opt/gnu-sed/libexec"
+OPENSSL_PATH="/usr/local/opt/openssl@1.1"
+GEM_PATH="$HOME/.asdf/shims"
 
-export PATH=~/.local/bin/scripts:$PATH
-
-# # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-export GEM_PATH="$HOME/.asdf/shims/"
-export PATH="$GEM_PATH/bin:$PATH"
+export                        PATH="$HOME/.local/bin/scripts:$PATH"
+[ -d "${GNU_SED_PATH}" ]  &&  PATH="$GNU_SED_PATH/gnubin:$PATH"
+[ -d "${OPENSSL_PATH}" ]  &&  PATH="$OPENSSL_PATH/bin:$PATH"
+[ -d "${GEM_PATH}" ]      &&  PATH="$GEM_PATH/bin:$PATH"
 
 export GOPATH="${HOME}/Developer/go"
 export GOBIN=$GOPATH/bin
