@@ -24,7 +24,7 @@ alatheme() {
 
   # Replcae the current colorscheme with new colorscheme
   # TODO: Maybe verify if the theme is listed in alacritty.yml
-  sed -i '' "s/${current_scheme}/*${new_scheme}/g" "${config}"
+  sed -i "s/${current_scheme}/*${new_scheme}/g" "${config}"
 }
 
 alatheme "$@"

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# If dirty
+if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+  cd "$HOME/Developer/hackerrank" || exit 1
+  git stash
+  mv config/spring.rb /tmp/config_spring.rb || true
+  mv bin/rspec /tmp/bin_rspec || true
+  rm bin/* || true
+  git reset --hard HEAD
+  git pull -r origin master
+  git stash pop
+  mv /tmp/config_spring.rb config/spring.rb || true
+  mv /tmp/bin_rspec bin/rspec || true
+fi
