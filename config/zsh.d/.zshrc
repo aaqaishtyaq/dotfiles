@@ -46,7 +46,7 @@ done
 #-------------------------#
 # Prompt
 #-------------------------#
-if [ -x "$(command -v starship)" ] && [ -f "${HOME}/.config/starship.toml" ]; then
+if [ -x "$(command -v starship)" ] && [ -f "${STARSHIP_CONFIG}" ]; then
   eval "$(starship init zsh)"
 elif [ -f "${ZSH_PLUGIN_DIR}/powerlevel10k/powerlevel10k.zsh-theme" ] && [ -z "${NEW_PROMPT}" ]; then
   source "${ZSH_PLUGIN_DIR}/powerlevel10k/powerlevel10k.zsh-theme"

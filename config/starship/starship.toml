@@ -1,32 +1,32 @@
 # Starship config
 
 [username]
-style_user = "bold fg:#d442f5"
-style_root = "black bold"
+style_user = "bold cyan"
+style_root = "bold black"
 
 [character]
-success_symbol = "[ᛗ](bold green)"
-error_symbol="[ᛗ](bright-red)"
+success_symbol = "[ᛥ](bold bright-purple)"
+error_symbol="[ᛗi](bright-red)"
 
 [golang]
 style="fg:#00ADD8"
 symbol="go"
 
 [directory]
-style = "fg:#f42c3e bold"
+style = "bold purple"
 truncation_length = 10
 truncate_to_repo = false
 format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [hostname]
 ssh_only=true
-style = "bright-green"
+style = "bold bright-blue"
 
 [cmd_duration]
 min_time=500
 show_milliseconds = false
 disabled = false
-style = "bold #f42c3e"
+style = "cyan"
 
 [gcloud]
 disabled=true
@@ -61,3 +61,4 @@ untracked = "U$count"
 staged = "A$count"
 modified = "M$count"
 deleted = "D$count"
+
