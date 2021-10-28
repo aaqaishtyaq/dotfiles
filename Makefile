@@ -64,3 +64,14 @@ zsh:
 		f=$$(basename $$file); \
 		ln -fs $$file "${CONFIG_PATH}/zsh.d/$$f";\
 	done;
+
+.PHONY: limelight
+## limelight: show borders around macOS window
+limelight:
+	@if [[ $(shell uname) == Darwin ]]; then \
+		mkdir -p "${CONFIG_PATH}/limelight"; \
+		echo "Created config directory"; \
+		echo "Symlinking config"; \
+		ln -sf "$(CURDIR)/config/limelight/limelightrc" "${CONFIG_PATH}/limelight/limelightrc"; \
+	fi
+

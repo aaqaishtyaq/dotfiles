@@ -1,10 +1,11 @@
 -- Hammerspoon modifier
-local hsModifier = { "ctrl", "alt" }
+local hsModifier = { "ctrl", "cmd" }
 
 local appList = {
   Alacritty = { binding = "a"},
   Firefox = { binding = "f" },
   Slack = { binding = "s" },
+  Music = { binding = "m" },
   -- ["Code"] = { binding = "e" }
 }
 
