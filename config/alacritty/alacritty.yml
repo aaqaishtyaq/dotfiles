@@ -11,7 +11,7 @@ window:
     x: 10
     y: 10
   dynamic_padding: false
-  decorations: buttonless
+  decorations: full
   # startup_mode: Fullscreen
   dynamic_title: true
 

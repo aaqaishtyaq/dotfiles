@@ -36,6 +36,8 @@ git:
 .PHONY: hammerspoon
 ## hammerspoon: control mac using lua
 hammerspoon:
+	# Set default hammerspoon config localtion to XDG_HOME
+	@defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 	@mkdir -p "$(CONFIG_PATH)/hammerspoon"
 	@ln -sf "$(CURDIR)/config/hammerspoon/init.lua" "$(CONFIG_PATH)/hammerspoon/init.lua"
 
