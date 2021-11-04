@@ -6,7 +6,8 @@ local appList = {
   Firefox = { binding = "f" },
   Slack = { binding = "s" },
   Music = { binding = "m" },
-  -- ["Code"] = { binding = "e" }
+  ["Brave Browser"] = { binding = "b" },
+  -- ["Code"] = { binding = "e" },
 }
 
 -- Reload config
