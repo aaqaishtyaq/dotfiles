@@ -1,0 +1,16 @@
+#!/bin/sh
+
+gde() {
+    : '
+        git diff exclude files or folders
+        usage:
+        gde fileOrFolderNameToExclude
+    '
+    if [ "$1" = "--staged" ]; then
+      git diff "$1" ":(exclude)$2"
+    else
+      git diff ":(exclude)$1"
+    fi
+}
+
+gde "$@"
