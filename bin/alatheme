@@ -25,6 +25,15 @@ alatheme() {
   # Replcae the current colorscheme with new colorscheme
   # TODO: Maybe verify if the theme is listed in alacritty.yml
   sed -i "s/${current_scheme}/*${new_scheme}/g" "${config}"
+
+  # Change neovim theme
+  if [[ "${new_scheme}" =~ "light" ]]; then
+    vim_mode=light
+  else
+    vim_mode=dark
+  fi
+
+  nvim-mode "${vim_mode}"
 }
 
 alatheme "$@"

@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# nvim-mode
+# Toggle neovim background mode between light and dark
+# nvim-mode light|dark
+#
+
+nvim_change_color() {
+  local new_mode="${1}"
+  local config="${HOME}/.config/nvim/init.vim"
+  local current_mode
+
+  # If config is a symlink then set the source config
+  [[ -L "${config}" ]] &&
+    config=$(readlink "${config}")
+
+  [[ ! -f "${config}" ]] &&
+    echo "[Error] neovim config ${config} does not exist" &&
+    exit 1
+
+  [[ ! "${new_mode}" ]] &&
+    echo "[Error] Please provide a mode"
+
+  if [[ "${new_mode}" == 'light'  || "${new_mode}" == 'dark' ]]; then
+    current_mode=$(grep -E "set\ background=" ~/.config/nvim/init.vim | xargs -n 1 | tail -1)
+    sed -i "s/${current_mode}/background=${new_mode}/" "${config}"
+    exit 0
+  fi
+
+  echo "[Error] mode (${new_mode}) can only be light or dark"
+  exit 1
+}
+
+nvim_change_color "$@"
