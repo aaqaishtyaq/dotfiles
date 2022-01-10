@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#
+# Mirror image vertically and horizontally
+#
+#  Example:
+#   ./mirror-img 'inImage' 'outImage'
+#
+
+mirror() {
+  local inImage="$1"
+  local outImage="$2"
+  magick "$inImage" -background transparent \( +clone -flop \) -composite "$outImage"
+}
+
+if [[ $# != 2 ]]; then
+  echo "Mirror Tile input image"
+  echo "   ./mirror-img 'inImage' 'outImage'"
+  exit
+fi
+
+mirror "$@"
+

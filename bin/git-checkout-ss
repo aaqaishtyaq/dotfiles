@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd "${HR_DIR}/hhh" 1> /dev/null || exit 1
+pushd "${HR_DIR}" 1> /dev/null || exit 1
 git checkout -- db/structure.sql
 git checkout -- db_recruit/structure.sql
 popd 1> /dev/null || exit 1
