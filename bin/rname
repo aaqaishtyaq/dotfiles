@@ -1,9 +1,0 @@
-#!/bin/bash
-
-batch_rename() {
-  local fext
-  export fext=$1
-  ls -1 | xargs -L 1 -I {} bash -c 'mv $1 "${1%.*}.$fext"' _ {}
-}
-
-batch_rename "$@"
