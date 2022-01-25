@@ -49,3 +49,25 @@ hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'n', function()
   win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
 end)
 
+-- Send the window to the next screen
+hs.hotkey.bind(hsModifier, ';', function()
+    if hs.window.focusedWindow() then
+        local win = hs.window.focusedWindow()
+        local screen = win:screen()
+        if #hs.screen.allScreens() > 1 then
+			if win:isFullScreen() then
+				win:setFullScreen(false):moveToScreen(screen:next())
+				hs.timer.doAfter(0.6,function()
+					win:setFullScreen(true)
+				end)
+			else
+				win:moveToScreen(screen:next())
+			end
+        else
+            hs.alert.show("Only one monitor")
+        end
+    else
+        hs.alert.show("No active window")
+    end
+end)
+
