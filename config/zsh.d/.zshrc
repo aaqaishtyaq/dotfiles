@@ -53,7 +53,11 @@ elif [ -f "${ZSH_PLUGIN_DIR}/powerlevel10k/powerlevel10k.zsh-theme" ] && [ -z "$
   light_saber
   ZSH_THEME="powerlevel10k/powerlevel10k"
 else
-  activate_bellatrix
+  autoload -Uz add-zsh-hook
+  _iay_prompt() {
+    PROMPT="$(iay -zm)"
+  }
+  add-zsh-hook precmd _iay_prompt
 fi
 
 if command -v grep &>/dev/null; then

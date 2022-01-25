@@ -5,6 +5,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "aaqaishtyaq/tap"
 
 
 # CLI tools
@@ -28,6 +29,7 @@ brew 'the_silver_searcher'
 brew 'ripgrep'
 brew 'asdf'
 brew 'gpg2'
+brew "iay"
 
 # Casks
 cask 'alfred'
