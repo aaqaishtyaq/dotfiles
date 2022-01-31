@@ -70,3 +70,16 @@ if (( $+commands[kubectl] )); then
 fi
 
 complete -F __start_kubectl k
+
+# Helm completion
+if (( $+commands[helm] )); then
+    __HELM_COMPLETION_FILE="${ZSH_CACHE_DIR}/helm_completion"
+
+    if [[ ! -f $__HELM_COMPLETION_FILE || ! -s $__HELM_COMPLETION_FILE ]]; then
+        helm completion zsh >! $__HELM_COMPLETION_FILE
+    fi
+
+    [[ -f $__HELM_COMPLETION_FILE ]] && source $__HELM_COMPLETION_FILE
+
+    unset __HELM_COMPLETION_FILE
+fi
