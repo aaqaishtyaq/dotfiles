@@ -7,7 +7,7 @@ local appList = {
   Slack = { binding = "s" },
   Music = { binding = "m" },
   ["Brave Browser"] = { binding = "b" },
-  -- ["Code"] = { binding = "e" },
+  ["Visual Studio Code"] = { binding = "e" },
 }
 
 -- Reload config
@@ -70,4 +70,3 @@ hs.hotkey.bind(hsModifier, ';', function()
         hs.alert.show("No active window")
     end
 end)
-
