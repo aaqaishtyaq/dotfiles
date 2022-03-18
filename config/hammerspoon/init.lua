@@ -8,6 +8,7 @@ local appList = {
   Music = { binding = "m" },
   ["Brave Browser"] = { binding = "b" },
   ["Visual Studio Code"] = { binding = "e" },
+  Insomnia = { binding = "i" },
 }
 
 -- Reload config
