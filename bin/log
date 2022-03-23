@@ -27,5 +27,4 @@ if [[ ! $commit =~ ^[Yy] ]]; then
 fi
 
 cd "${dir}" || exit 1
-git add "${file}"
-git commit
+bash "${KNPATH}/utils/sync.sh"

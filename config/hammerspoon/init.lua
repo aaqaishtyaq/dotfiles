@@ -9,6 +9,7 @@ local appList = {
   ["Brave Browser"] = { binding = "b" },
   ["Visual Studio Code"] = { binding = "e" },
   Insomnia = { binding = "i" },
+  ["zoom.us"] = { binding = "z" },
 }
 
 -- Reload config
