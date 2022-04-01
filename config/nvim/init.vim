@@ -102,6 +102,7 @@ Plug 'AlessandroYorba/Sierra'
 " Colorscheme SpaceCamp
 Plug 'jaredgorski/SpaceCamp'
 Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'LnL7/vim-nix'
 Plug 'rust-lang/rust.vim'
