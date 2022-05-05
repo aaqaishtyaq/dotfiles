@@ -30,6 +30,7 @@ brew 'ripgrep'
 brew 'asdf'
 brew 'gpg2'
 brew "iay"
+brew "skopeo"
 
 # Casks
 cask 'alfred'
