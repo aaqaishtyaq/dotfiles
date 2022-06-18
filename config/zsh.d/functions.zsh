@@ -125,3 +125,10 @@ dots() {
 cdaa() {
     cd "${DEV_DIR}" || return
 }
+
+_rx() {
+    kubectx hr-qa
+    local POD
+    POD=$(kubectl get pods -n qatest | grep hrw-web-rails | awk 'FNR==1{print $1}')
+    kubectl exec -it "$POD" -n regression -c rails -- bash
+}

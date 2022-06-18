@@ -40,6 +40,7 @@ hammerspoon:
 	@defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 	@mkdir -p "$(CONFIG_PATH)/hammerspoon"
 	@ln -sf "$(CURDIR)/config/hammerspoon/init.lua" "$(CONFIG_PATH)/hammerspoon/init.lua"
+	@ln -sf "$(CURDIR)/config/hammerspoon/window-management.lua" "$(CONFIG_PATH)/hammerspoon/window-management.lua"
 
 .PHONY: nvim
 ## nvim: control mac using lua

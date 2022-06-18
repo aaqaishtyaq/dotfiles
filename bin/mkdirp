@@ -1,0 +1,9 @@
+#!/bin/bash
+
+_mkdirp() {
+  local args
+  args=$1
+  mkdir -p "${args}"
+}
+
+_mkdirp "$@"

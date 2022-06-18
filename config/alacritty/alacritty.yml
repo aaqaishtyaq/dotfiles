@@ -204,6 +204,71 @@ schemes:
       - { index: 20, color: '#b8b8b8' }
       - { index: 21, color: '#e8e8e8' }
 
+  drang: &drang
+    primary:
+      background: '#000000'
+      foreground: '0xd4d4d5'
+    cursor:
+      text: '#ffffff'
+      cursor: '#fc03f8'
+    normal:
+      black:   '0x000000'
+      red:     '0xf87070'
+      green:   '0x79dcaa'
+      yellow:  '0xffe59e'
+      blue:    '0x7ab0df'
+      magenta: '0xc397d8'
+      cyan:    '0x70c0ba'
+      white:   '0xd4d4d5'
+    bright:
+      black:   '0x666666'
+      red:     '0xf87070'
+      green:   '0x79dcaa'
+      yellow:  '0xffe59e'
+      blue:    '0x7ab0df'
+      magenta: '0xb77ee0'
+      cyan:    '0x54ced6'
+      white:   '0xffffff'
+
+
+  base16_monodark: &base16_monodark
+    primary:
+      background: '#000000'
+      foreground: '0xd8d8d8'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+
+    # Normal colors
+    normal:
+      black:   '0x181818'
+      red:     '0xab4642'
+      green:   '0xa1b56c'
+      yellow:  '0xf7ca88'
+      blue:    '0x7cafc2'
+      magenta: '0xba8baf'
+      cyan:    '0x86c1b9'
+      white:   '0xd8d8d8'
+
+    # Bright colors
+    bright:
+      black:   '0x585858'
+      red:     '0xab4642'
+      green:   '0xa1b56c'
+      yellow:  '0xf7ca88'
+      blue:    '0x7cafc2'
+      magenta: '0xba8baf'
+      cyan:    '0x86c1b9'
+      white:   '0xf8f8f8'
+
+    indexed_colors:
+    - { index: 16, color: '0xdc9656' }
+    - { index: 17, color: '0xa16946' }
+    - { index: 18, color: '0x282828' }
+    - { index: 19, color: '0x383838' }
+    - { index: 20, color: '0xb8b8b8' }
 
   base16_dark: &base16_dark
     primary:
