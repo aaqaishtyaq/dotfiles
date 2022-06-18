@@ -1,3 +1,9 @@
+-- -------------------------------------------
+-- 🔨🥄 Hammerspoon configuration file
+-- -------------------------------------------
+
+local wm = require('window-management')
+
 -- Hammerspoon modifier
 local hsModifier = { "ctrl", "cmd" }
 
@@ -10,6 +16,7 @@ local appList = {
   ["Visual Studio Code"] = { binding = "e" },
   Insomnia = { binding = "i" },
   ["zoom.us"] = { binding = "z" },
+  Obsidian = { binding = "o" },
 }
 
 -- Reload config
@@ -72,3 +79,5 @@ hs.hotkey.bind(hsModifier, ';', function()
         hs.alert.show("No active window")
     end
 end)
+
+
