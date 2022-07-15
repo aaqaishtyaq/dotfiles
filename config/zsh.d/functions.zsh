@@ -126,9 +126,14 @@ cdaa() {
     cd "${DEV_DIR}" || return
 }
 
+# shell to qa hrw-web-rails container.
 _rx() {
-    kubectx hr-qa
     local POD
-    POD=$(kubectl get pods -n qatest | grep hrw-web-rails | awk 'FNR==1{print $1}')
-    kubectl exec -it "$POD" -n regression -c rails -- bash
+    # Kubernetes namespace for qa clusters
+    local context
+    context=$1
+
+    kubectx hr-qa
+    POD=$(kubectl get pods -n ${context} | grep hrw-web-rails | awk 'FNR==1{print $1}')
+    kubectl exec -it "$POD" -n ${context} -c rails -- bash
 }

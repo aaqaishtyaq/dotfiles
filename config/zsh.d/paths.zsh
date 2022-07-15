@@ -16,11 +16,13 @@ export                        PATH="$HOME/.local/bin/scripts:$PATH"
 [ -d "${GEM_PATH}" ]      &&  PATH="$GEM_PATH/bin:$PATH"
 
 export GOPATH="${HOME}/Developer/go"
-export GOBIN=$GOPATH/bin
+export GOBIN="${GOPATH}/bin"
+export GOROOT=/usr/local/opt/go/libexec
 
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
+export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:~/.local/bin
 if [[ "${MACOS}" ]];then
   . $(brew --prefix asdf)/asdf.sh
@@ -31,6 +33,10 @@ if [ -f "$HOME/.cargo/env" ]; then source "$HOME/.cargo/env"; fi
 
 # shellcheck disable=SC2206
 fpath=(${ASDF_DIR}/completions $fpath)
+
+# pnpm
+export PNPM_HOME="/Users/aaqa/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
 
 # shellcheck disable=SC1091
 # The next line updates PATH for the Google Cloud SDK.
