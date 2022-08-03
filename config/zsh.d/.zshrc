@@ -84,8 +84,3 @@ unset ZSH_PLUGIN_DIR
 
 # fsf (figure out  why it's not working before sourcing zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# pnpm
-export PNPM_HOME="/Users/aaqa/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end

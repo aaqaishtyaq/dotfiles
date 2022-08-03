@@ -134,6 +134,6 @@ _rx() {
     context=$1
 
     kubectx hr-qa
-    POD=$(kubectl get pods -n ${context} | grep hrw-web-rails | awk 'FNR==1{print $1}')
-    kubectl exec -it "$POD" -n ${context} -c rails -- bash
+    POD=$(kubectl get pods -n "${context}" | grep hrw-web-rails | awk 'FNR==1{print $1}')
+    kubectl exec -it "$POD" -n "${context}" -c rails -- bash
 }
