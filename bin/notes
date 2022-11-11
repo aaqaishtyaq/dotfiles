@@ -6,7 +6,7 @@ rel="$1"
 dir="${KNPATH}/notes/${rel}"
 file="${dir}/README.md"
 mkdir -p "${dir}"
-vim "${file}"
+${EDITOR} "${file}"
 
 read -rp 'Do you want to commit? ' commit
 

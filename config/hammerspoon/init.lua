@@ -6,6 +6,7 @@ local wm = require('window-management')
 
 -- Hammerspoon modifier
 local hsModifier = { "ctrl", "cmd" }
+local code = "/Applications/Visual Studio Code.app"
 
 local appList = {
   Alacritty = { binding = "a"},
@@ -13,7 +14,7 @@ local appList = {
   Slack = { binding = "s" },
   Music = { binding = "m" },
   ["Brave Browser"] = { binding = "b" },
-  ["Visual Studio Code"] = { binding = "e" },
+  [code] = { binding = "e" },
   Insomnia = { binding = "i" },
   ["zoom.us"] = { binding = "z" },
   Obsidian = { binding = "o" },
@@ -38,6 +39,8 @@ for app, config in pairs(appList) do
       if config.autoHide then
         -- Noop
       elseif application then
+        hs.application.launchOrFocus(app)
+      elseif app == code then -- hack! So that vscode can work
         hs.application.launchOrFocus(app)
       else
         hs.alert.closeSpecific(alertID, 0)
