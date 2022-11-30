@@ -38,13 +38,8 @@ for app, config in pairs(appList) do
       application = hs.application.find(app)
       if config.autoHide then
         -- Noop
-      elseif application then
-        hs.application.launchOrFocus(app)
-      elseif app == code then -- hack! So that vscode can work
-        hs.application.launchOrFocus(app)
       else
-        hs.alert.closeSpecific(alertID, 0)
-        alertID = hs.alert(app .. " not Running!", nil, nil, 1)
+        hs.application.launchOrFocus(app)
       end
     end)
   end

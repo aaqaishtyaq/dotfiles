@@ -82,7 +82,7 @@ tmpd() {
     else
         dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
     fi
-    cd "$dir" || exit
+    pushd "$dir" || exit
 }
 
 # exec into docker container

@@ -1,5 +1,5 @@
 helm 2.16.10 2.13.1
-nodejs 12.20.0
+nodejs 16.13.1
 yarn 1.22.10
 ruby 2.7.2 2.6.6 2.5.8
 python 3.9.0

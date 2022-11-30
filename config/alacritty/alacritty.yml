@@ -403,39 +403,36 @@ schemes:
       cyan:    '#34e2e2'
       white:   '#eeeeec'
 
-    3024_dark: &3024_dark
+    tomorrowdark: &tomorrowdark
       primary:
-        background: '0x090300'
-        foreground: '0xa5a2a2'
-
-      # Colors the cursor will use if `custom_cursor_colors` is true
+        background: '#000000'
+        foreground: '0xd4d4d5'
       cursor:
-        text: '0x090300'
-        cursor: '0xa5a2a2'
-
-      # Normal colors
+        text: '#666666'
+        cursor: '#fc03f8'
       normal:
-        black:   '0x090300'
-        red:     '0xdb2d20'
-        green:   '0x01a252'
-        yellow:  '0xfded02'
-        blue:    '0x01a0e4'
-        magenta: '0xa16a94'
-        cyan:    '0xb5e4f4'
-        white:   '0xa5a2a2'
-
-      # Bright colors
+        black:   '0x000000'
+        red:     '0xf87070'
+        green:   '0x79dcaa'
+        yellow:  '0xffe59e'
+        blue:    '0x7ab0df'
+        magenta: '0xc397d8'
+        cyan:    '0x70c0ba'
+        white:   '0xd4d4d5'
       bright:
-        black:   '0x090300'
-        red:     '0xdb2d20'
-        green:   '0x01a252'
-        yellow:  '0xfded02'
-        blue:    '0x01a0e4'
-        magenta: '0xa16a94'
-        cyan:    '0xb5e4f4'
-        white:   '0xa5a2a2'
+        black:   '0x666666'
+        red:     '0xf87070'
+        green:   '0x79dcaa'
+        yellow:  '0xffe59e'
+        blue:    '0x7ab0df'
+        magenta: '0xb77ee0'
+        cyan:    '0x54ced6'
+        white:   '0xffffff'
 
-colors: *ubuntu_dark
+    default_dark: &default_dark
+      primary:
+        background: '#000000'
+colors: *default_dark
 
 bell:
   animation: EaseOutExpo
