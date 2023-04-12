@@ -81,6 +81,7 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 unset ZSH
 unset ZSH_CACHE_DIR
 unset ZSH_PLUGIN_DIR
+unset GOOGLE_APPLICATION_CREDENTIALS
 
 # fsf (figure out  why it's not working before sourcing zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
