@@ -14,6 +14,9 @@ window:
   decorations: full
   # startup_mode: Fullscreen
   dynamic_title: true
+  opacity: 1
+  decorations_theme_variant: Dark
+
 
 scrolling:
   history: 10000
@@ -36,7 +39,7 @@ font:
   glyph_offset:
     x: 0
     y: 0
-  use_thin_strokes: true
+  # use_thin_strokes: true
 
 draw_bold_text_with_bright_colors: false
 
@@ -430,6 +433,9 @@ schemes:
         white:   '0xffffff'
 
     default_dark: &default_dark
+      cursor:
+        text: CellBackground
+        cursor: CellForeground
       primary:
         background: '#000000'
 colors: *default_dark
@@ -440,7 +446,7 @@ bell:
   color: '#ffffff'
 
 # 0.85 if not light
-background_opacity: 1
+# background_opacity: 1
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
@@ -448,13 +454,13 @@ mouse_bindings:
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
-  url:
-    launcher:
-      program: google-chrome
-      args:
-        - --new-window
+  # url:
+    #launcher:
+    # program: google-chrome
+    #  args:
+    #    - --new-window
   hide_when_typing: false
-  url:
+    # url:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.
@@ -474,7 +480,7 @@ mouse:
     #
     # These are the modifiers that need to be held down for opening URLs when clicking
     # on them. The available modifiers are documented in the key binding section.
-    modifiers: None
+    #modifiers: None
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
@@ -490,7 +496,7 @@ live_config_reload: true
 working_directory: None
 
 # Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: true
+# alt_send_esc: true
 
 debug:
   # Display the time it takes to redraw each frame.
